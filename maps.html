@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Environment map — Paradice Forge</title>
+  <meta name="description" content="Drag terrain footprints for 11th edition Warhammer 40,000, Age of Sigmar, Horus Heresy, Kill Team, Warcry, and Necromunda. Original Forge starts. Not official GW maps." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/forge.css" />
+</head>
+<body data-page="maps">
+  <div id="site-header"></div>
+  <main id="main">
+    <header class="hero hero-page">
+      <div class="wrap hero-inner">
+        <p class="eyebrow">Environment map · drag the shapes</p>
+        <h1 class="brand">Build the <em>table.</em></h1>
+        <p class="lede">
+          Pick the game, a Forge start, then slide ruins, wedges, and shop extras
+          around like a real environment. Double-tap a piece to rotate.
+        </p>
+      </div>
+    </header>
+
+    <section id="map-app">
+      <div class="wrap">
+        <p class="test-banner">
+          Unofficial planner. We use public table sizes and 11th-edition footprint
+          <em>dimensions</em>. Starting maps are original Paradice Forge arrangements —
+          not Event Companion, GHB battleplans, or Approved Ops killzones.
+          Game names are hobby labels only.
+        </p>
+
+        <div class="map-controls">
+          <label>
+            Tabletop game
+            <select id="map-game"></select>
+          </label>
+          <label>
+            Style start (Map 1, 2…)
+            <select id="map-style"></select>
+          </label>
+          <label>
+            Deployment overlay
+            <select id="map-deploy"></select>
+          </label>
+          <div class="cta-row">
+            <button type="button" class="btn btn-primary" id="map-reset">Reset start</button>
+            <button type="button" class="btn btn-ghost" id="map-random">Surprise table</button>
+            <button type="button" class="btn btn-ghost" id="map-rotate">Rotate selected</button>
+            <button type="button" class="btn btn-ghost" id="map-delete">Remove selected</button>
+            <a class="btn btn-ghost" href="shop.html">Shop extras</a>
+          </div>
+        </div>
+
+        <p class="map-hint" id="map-hint"></p>
+        <div id="map-table" class="map-table" aria-label="Draggable environment map"></div>
+        <div class="map-picture-bar">
+          <button type="button" class="btn btn-primary" id="map-picture">Generate layout picture</button>
+          <a class="btn btn-ghost hidden" id="map-picture-download" download="paradice-forge-layout.png">Download PNG</a>
+        </div>
+        <figure class="map-picture-frame hidden" id="map-picture-frame">
+          <figcaption>Layout picture</figcaption>
+          <img id="map-picture-img" alt="Generated table layout" />
+        </figure>
+        <div id="map-meta" class="map-meta section-lede"></div>
+
+        <h2>Shop extras</h2>
+        <p class="section-lede">
+          Add a Forge centerpiece, then drag it. Same pieces as the sale catalog.
+        </p>
+        <div id="map-extras" class="extra-grid"></div>
+
+        <details class="map-research">
+          <summary>What we researched (current editions)</summary>
+          <ul>
+            <li><strong>40k 11th</strong> (20 Jun 2026): 60×44 in · 16-piece footprint kit (7×11.5, 8×11.5 triangles, 6×4, 10×2.5, 6×2). Official mission maps stay off this site.</li>
+            <li><strong>Age of Sigmar 4e / GHB 2025–26</strong>: 60×44 and ~8 features at 2k; 44×30 and ~4 at 1k. Named battleplans not used.</li>
+            <li><strong>Horus Heresy 3e</strong> (Jul 2025): 6×4 open table · three deployment <em>types</em> · Zone Mortalis ~4×4 with 12 in sectors.</li>
+            <li><strong>Kill Team</strong>: 30×22 · official killzone maps not copied.</li>
+            <li><strong>Also here</strong>: Warcry 30×22 · Necromunda 36×36.</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/config.js"></script>
+  <script src="js/catalog.js"></script>
+  <script src="js/forge.js"></script>
+  <script src="js/maps.js"></script>
+</body>
+</html>
