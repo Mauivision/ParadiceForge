@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-label="Paradice Forge desk">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="80%" r="70%">
+      <stop offset="0%" stop-color="#3df0ff" stop-opacity="0.35"/>
+      <stop offset="55%" stop-color="#1a4cff" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#040816" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9ad8ff"/>
+      <stop offset="100%" stop-color="#2a5a88"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="620" fill="#040816"/>
+  <rect width="960" height="620" fill="url(#glow)"/>
+  <g fill="none" stroke="#3df0ff" stroke-opacity="0.18" stroke-width="1">
+    <path d="M40 520 H920"/>
+    <path d="M80 560 H880"/>
+    <path d="M140 80 V500"/>
+    <path d="M820 80 V500"/>
+  </g>
+  <g transform="translate(250 210)">
+    <rect x="0" y="90" width="220" height="70" rx="6" fill="#0a1428" stroke="#3df0ff" stroke-width="3"/>
+    <path d="M40 90 V40 H180 V90" fill="none" stroke="#3df0ff" stroke-width="8" stroke-linecap="square"/>
+    <path d="M70 40 V18 H150 V40" fill="none" stroke="#7af6ff" stroke-width="6"/>
+  </g>
+  <g transform="translate(520 250)">
+    <rect x="0" y="0" width="150" height="150" rx="18" fill="none" stroke="#3df0ff" stroke-width="4"/>
+    <circle cx="75" cy="75" r="18" fill="#3df0ff"/>
+    <circle cx="32" cy="32" r="10" fill="#7af6ff"/>
+    <circle cx="118" cy="32" r="10" fill="#7af6ff"/>
+    <circle cx="32" cy="118" r="10" fill="#7af6ff"/>
+    <circle cx="118" cy="118" r="10" fill="#7af6ff"/>
+  </g>
+  <text x="80" y="88" fill="#7d93b8" font-family="Georgia, serif" font-size="22" letter-spacing="4">PARADICE FORGE</text>
+  <text x="80" y="122" fill="#e4f0ff" font-family="Georgia, serif" font-size="36">Paradise + dice</text>
+</svg>
