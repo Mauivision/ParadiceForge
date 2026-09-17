@@ -64,7 +64,6 @@
   function renderAtmosphere() {
     if (document.querySelector(".atmosphere")) return;
     const src = sceneForPage();
-    document.documentElement.style.setProperty("--scene", 'url("' + src + '")');
     const el = document.createElement("div");
     el.className = "atmosphere";
     el.setAttribute("aria-hidden", "true");
@@ -81,6 +80,8 @@
       '<div class="atm-grain"></div>' +
       '<div class="atm-vignette"></div>';
     document.body.insertBefore(el, document.body.firstChild);
+    // Set the photo on the element so url() resolves against the page, not css/forge.css.
+    el.querySelector(".atm-scene").style.backgroundImage = 'url("' + src + '")';
   }
 
   function bindFallbacks(root) {
