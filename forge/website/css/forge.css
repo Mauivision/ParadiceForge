@@ -1019,9 +1019,8 @@ html[data-focus="subject"] .focal img {
   pointer-events: none;
 }
 
-.focal-hero {
-  min-height: 22rem;
-  box-shadow: none;
+.focal-hero img {
+  object-position: center 30%;
 }
 
 .focal-card {
@@ -1095,6 +1094,12 @@ html[data-focus="subject"] .focal img {
   .map-controls .cta-row { grid-column: 1 / -1; }
 }
 
+@media (min-width: 960px) {
+  .map-controls {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
 .map-controls label {
   display: flex;
   flex-direction: column;
@@ -1119,8 +1124,22 @@ html[data-focus="subject"] .focal img {
   border-radius: 2px;
 }
 
+.map-surface-ideas {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin: 0 0 0.75rem;
+  max-width: 42rem;
+  line-height: 1.45;
+}
+
 .map-table {
   --map-aspect: 1.36;
+  --map-piece-face: color-mix(in srgb, var(--bg-elev) 80%, #1a3a70);
+  --map-piece-edge: var(--brass);
+  --map-piece-ink: var(--ink);
+  --map-line-face: color-mix(in srgb, var(--brass) 22%, var(--bg-panel));
+  --map-tri-face: color-mix(in srgb, var(--rust) 35%, var(--bg-elev));
+  --map-blob-face: color-mix(in srgb, #2a6a48 40%, var(--bg-elev));
   width: 100%;
   aspect-ratio: var(--map-aspect);
   max-height: 70vh;
@@ -1138,6 +1157,162 @@ html[data-focus="subject"] .focal img {
     radial-gradient(ellipse 70% 60% at 50% 50%, rgba(61, 240, 255, 0.06), transparent 60%),
     repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(61, 240, 255, 0.04) 25px),
     repeating-linear-gradient(90deg, transparent, transparent 24px, rgba(61, 240, 255, 0.04) 25px);
+}
+
+/* —— Table surfaces —— */
+.map-table[data-surface="grass"],
+.map-felt[data-surface="grass"] {
+  background:
+    radial-gradient(ellipse 55% 45% at 30% 40%, rgba(90, 160, 70, 0.35), transparent 55%),
+    radial-gradient(ellipse 50% 50% at 70% 65%, rgba(40, 90, 45, 0.4), transparent 50%),
+    repeating-linear-gradient(0deg, transparent, transparent 22px, rgba(30, 70, 35, 0.12) 23px),
+    repeating-linear-gradient(90deg, transparent, transparent 22px, rgba(30, 70, 35, 0.1) 23px),
+    linear-gradient(160deg, #2a5a38 0%, #1a3d28 45%, #143020 100%);
+}
+.map-table[data-surface="grass"] {
+  --map-piece-face: color-mix(in srgb, #1c3728 75%, #3d5a40);
+  --map-piece-edge: #8fd4a0;
+  --map-line-face: color-mix(in srgb, #1a3020 60%, #5a8a50);
+  --map-tri-face: color-mix(in srgb, #4a3020 50%, #2a4a30);
+  --map-blob-face: color-mix(in srgb, #1e4a28 55%, #3a7a40);
+}
+
+.map-table[data-surface="sand"],
+.map-felt[data-surface="sand"] {
+  background:
+    radial-gradient(ellipse 60% 50% at 40% 35%, rgba(230, 200, 140, 0.5), transparent 55%),
+    radial-gradient(ellipse 40% 35% at 75% 70%, rgba(180, 130, 70, 0.35), transparent 50%),
+    repeating-linear-gradient(12deg, transparent, transparent 18px, rgba(140, 100, 50, 0.08) 19px),
+    linear-gradient(145deg, #e0c090 0%, #c4a574 50%, #a88855 100%);
+}
+.map-table[data-surface="sand"] {
+  --map-piece-face: color-mix(in srgb, #5a4630 70%, #8a7050);
+  --map-piece-edge: #6a5030;
+  --map-piece-ink: #1a1410;
+  --map-line-face: color-mix(in srgb, #4a3820 50%, #c4a574);
+  --map-tri-face: color-mix(in srgb, #7a4020 40%, #a88855);
+  --map-blob-face: color-mix(in srgb, #3a5a30 45%, #c4a574);
+}
+
+.map-table[data-surface="ash-red"],
+.map-felt[data-surface="ash-red"] {
+  background:
+    radial-gradient(ellipse 50% 40% at 60% 30%, rgba(220, 80, 40, 0.35), transparent 55%),
+    radial-gradient(ellipse 45% 50% at 25% 75%, rgba(80, 20, 15, 0.5), transparent 50%),
+    repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(255, 120, 60, 0.07) 21px),
+    linear-gradient(155deg, #7a3024 0%, #5c241c 40%, #3a1510 100%);
+}
+.map-table[data-surface="ash-red"] {
+  --map-piece-face: color-mix(in srgb, #3a1814 70%, #6a3028);
+  --map-piece-edge: #e07a55;
+  --map-line-face: color-mix(in srgb, #2a1010 50%, #c06040);
+  --map-tri-face: color-mix(in srgb, #8a3020 45%, #4a2018);
+  --map-blob-face: color-mix(in srgb, #2a4020 40%, #5c241c);
+}
+
+.map-table[data-surface="blue-metal"],
+.map-felt[data-surface="blue-metal"] {
+  background:
+    linear-gradient(90deg, rgba(140, 190, 255, 0.06) 1px, transparent 1px) 0 0 / 28px 28px,
+    linear-gradient(0deg, rgba(140, 190, 255, 0.06) 1px, transparent 1px) 0 0 / 28px 28px,
+    radial-gradient(ellipse 50% 40% at 50% 20%, rgba(80, 160, 255, 0.2), transparent 55%),
+    linear-gradient(180deg, #243656 0%, #1a2a44 50%, #121c30 100%);
+}
+.map-table[data-surface="blue-metal"] {
+  --map-piece-face: color-mix(in srgb, #182848 75%, #3a5a88);
+  --map-piece-edge: #6eb6ff;
+  --map-line-face: color-mix(in srgb, #101828 40%, #4a7ab0);
+  --map-tri-face: color-mix(in srgb, #304060 50%, #1a2a44);
+  --map-blob-face: color-mix(in srgb, #204050 50%, #1a2a44);
+}
+
+.map-table[data-surface="hive-grey"],
+.map-felt[data-surface="hive-grey"] {
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.04), transparent 40%),
+    repeating-linear-gradient(0deg, transparent, transparent 16px, rgba(0, 0, 0, 0.12) 17px),
+    repeating-linear-gradient(90deg, transparent, transparent 16px, rgba(0, 0, 0, 0.1) 17px),
+    linear-gradient(160deg, #4a5058 0%, #3a3e46 55%, #2a2e34 100%);
+}
+.map-table[data-surface="hive-grey"] {
+  --map-piece-face: color-mix(in srgb, #2a2e36 70%, #5a6068);
+  --map-piece-edge: #a8b0bc;
+  --map-line-face: color-mix(in srgb, #1a1e24 50%, #707880);
+  --map-tri-face: color-mix(in srgb, #4a4038 40%, #3a3e46);
+  --map-blob-face: color-mix(in srgb, #2a4030 45%, #3a3e46);
+}
+
+.map-table[data-surface="snow"],
+.map-felt[data-surface="snow"] {
+  background:
+    radial-gradient(ellipse 40% 30% at 70% 25%, rgba(255, 255, 255, 0.7), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 30% 70%, rgba(160, 190, 220, 0.45), transparent 55%),
+    repeating-linear-gradient(0deg, transparent, transparent 26px, rgba(80, 110, 150, 0.08) 27px),
+    linear-gradient(150deg, #f0f6fc 0%, #d8e4f0 50%, #b8cce0 100%);
+}
+.map-table[data-surface="snow"] {
+  --map-piece-face: color-mix(in srgb, #5a6e88 65%, #90a8c0);
+  --map-piece-edge: #3a5a7a;
+  --map-piece-ink: #121820;
+  --map-line-face: color-mix(in srgb, #405060 45%, #d0dce8);
+  --map-tri-face: color-mix(in srgb, #6a5060 35%, #a0b4c8);
+  --map-blob-face: color-mix(in srgb, #3a6050 40%, #c8d8e8);
+}
+
+.map-table[data-surface="marsh"],
+.map-felt[data-surface="marsh"] {
+  background:
+    radial-gradient(ellipse 35% 25% at 40% 55%, rgba(40, 90, 70, 0.55), transparent 50%),
+    radial-gradient(ellipse 30% 20% at 65% 40%, rgba(30, 50, 35, 0.5), transparent 45%),
+    repeating-linear-gradient(-8deg, transparent, transparent 14px, rgba(60, 100, 40, 0.1) 15px),
+    linear-gradient(165deg, #2e4830 0%, #243820 50%, #1a2818 100%);
+}
+.map-table[data-surface="marsh"] {
+  --map-piece-face: color-mix(in srgb, #283820 70%, #4a6040);
+  --map-piece-edge: #7aaa55;
+  --map-line-face: color-mix(in srgb, #1a2818 50%, #5a8040);
+  --map-tri-face: color-mix(in srgb, #4a3820 40%, #2a4028);
+  --map-blob-face: color-mix(in srgb, #1e5030 55%, #2a4830);
+}
+
+.map-table[data-surface="void"],
+.map-felt[data-surface="void"] {
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(61, 240, 255, 0.06), transparent 60%),
+    repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(61, 240, 255, 0.04) 25px),
+    repeating-linear-gradient(90deg, transparent, transparent 24px, rgba(61, 240, 255, 0.04) 25px),
+    #07101c;
+}
+.map-table[data-surface="void"] {
+  --map-piece-face: color-mix(in srgb, var(--bg-elev) 80%, #1a3a70);
+  --map-piece-edge: var(--brass);
+  --map-line-face: color-mix(in srgb, var(--brass) 22%, var(--bg-panel));
+  --map-tri-face: color-mix(in srgb, var(--rust) 35%, var(--bg-elev));
+  --map-blob-face: color-mix(in srgb, #2a6a48 40%, var(--bg-elev));
+}
+
+/* Light mats: keep deploy labels readable */
+.map-table[data-surface="sand"] .map-zone,
+.map-table[data-surface="snow"] .map-zone {
+  color: #5a2a10;
+  background: color-mix(in srgb, #8a5020 18%, transparent);
+  border-color: color-mix(in srgb, #6a3a18 55%, transparent);
+}
+.map-table[data-surface="sand"] .map-zone-b,
+.map-table[data-surface="snow"] .map-zone-b {
+  color: #6a1820;
+  background: color-mix(in srgb, #a03030 16%, transparent);
+  border-color: color-mix(in srgb, #802028 50%, transparent);
+}
+.map-table[data-surface="snow"] .map-zone {
+  color: #1a3050;
+  background: color-mix(in srgb, #3060a0 14%, transparent);
+  border-color: color-mix(in srgb, #2a5080 50%, transparent);
+}
+.map-table[data-surface="snow"] .map-zone-b {
+  color: #502030;
+  background: color-mix(in srgb, #803040 14%, transparent);
+  border-color: color-mix(in srgb, #703040 50%, transparent);
 }
 
 .map-zone,
@@ -1159,6 +1334,7 @@ html[data-focus="subject"] .focal img {
   background: color-mix(in srgb, var(--brass) 12%, transparent);
   border: 1px dashed color-mix(in srgb, var(--brass) 45%, transparent);
   color: var(--ember);
+  backdrop-filter: blur(1px);
 }
 
 .map-zone-b {
@@ -1241,9 +1417,11 @@ html[data-focus="subject"] .focal img {
   position: absolute;
   margin: 0;
   padding: 0.15rem;
-  border: 1px solid var(--brass);
-  background: color-mix(in srgb, var(--bg-elev) 80%, #1a3a70);
-  color: var(--ink);
+  border: 1px solid var(--map-piece-edge);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, transparent 28%),
+    var(--map-piece-face);
+  color: var(--map-piece-ink);
   font-family: inherit;
   font-size: 0.58rem;
   letter-spacing: 0.04em;
@@ -1258,33 +1436,46 @@ html[data-focus="subject"] .focal img {
   text-align: center;
   line-height: 1.15;
   z-index: 3;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .map-piece:active { cursor: grabbing; }
 
 .map-piece.is-line {
-  background: color-mix(in srgb, var(--brass) 22%, var(--bg-panel));
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent 40%),
+    var(--map-line-face);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .map-piece.is-tri {
   clip-path: polygon(0 100%, 100% 100%, 0 0);
-  background: color-mix(in srgb, var(--rust) 35%, var(--bg-elev));
+  background: var(--map-tri-face);
 }
 
 .map-piece.is-blob {
   border-radius: 45% 40% 50% 42%;
-  background: color-mix(in srgb, #2a6a48 40%, var(--bg-elev));
+  background:
+    radial-gradient(ellipse 60% 50% at 40% 35%, rgba(255, 255, 255, 0.12), transparent 55%),
+    var(--map-blob-face);
 }
 
 .map-piece.is-extra {
-  background: color-mix(in srgb, var(--brass) 30%, var(--bg-panel));
-  box-shadow: 0 0 16px var(--glow);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--brass) 40%, transparent), transparent 50%),
+    color-mix(in srgb, var(--brass) 30%, var(--bg-panel));
+  box-shadow: 0 0 16px var(--glow), 0 2px 8px rgba(0, 0, 0, 0.4);
   z-index: 4;
 }
 
 .map-piece.is-sel {
   outline: 2px solid var(--ember);
   z-index: 5;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--ember) 50%, transparent),
+    0 4px 14px rgba(0, 0, 0, 0.45);
 }
 
 .map-picture-bar {

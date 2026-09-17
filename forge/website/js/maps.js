@@ -1,9 +1,61 @@
 /**
  * Paradice Forge environment map — drag footprints.
  * Original starts only. Public table sizes + reported 11th-ed kit dimensions.
+ * Table surfaces: grass, sand, ash, blue metal, hive, snow, marsh, void.
  */
 (function () {
   const STORE = "paradice-forge-env-map";
+
+  const SURFACES = [
+    {
+      id: "grass",
+      label: "Green grass · meadow / Armageddon fields",
+      idea: "BA vs Orks on open ground. Soft green base, darker hedges under ruins.",
+      png: { felt: "#1a3d28", grid: "rgba(180,220,160,0.12)", piece: "rgba(28,55,40,0.92)", line: "#8fd4a0" },
+    },
+    {
+      id: "sand",
+      label: "Sand · desert / Isstvan ash-edge",
+      idea: "Warm dunes. Dust under footprints. Good for Heresy dropsite energy.",
+      png: { felt: "#c4a574", grid: "rgba(90,60,30,0.18)", piece: "rgba(90,70,48,0.88)", line: "#8a6a3c" },
+    },
+    {
+      id: "ash-red",
+      label: "Red ash · Armageddon / volcanic",
+      idea: "Rust-red dust and slag. Matches Ork yellow-rust and BA crimson contrast.",
+      png: { felt: "#5c241c", grid: "rgba(255,140,90,0.14)", piece: "rgba(70,30,24,0.9)", line: "#e07a55" },
+    },
+    {
+      id: "blue-metal",
+      label: "Blue metal · hive deck / void station",
+      idea: "Cold plating, rivet grid, cyan edge light. Custodes / Kill Team yards.",
+      png: { felt: "#1a2a44", grid: "rgba(100,180,255,0.16)", piece: "rgba(24,40,70,0.92)", line: "#6eb6ff" },
+    },
+    {
+      id: "hive-grey",
+      label: "Hive grey · manufactorum floor",
+      idea: "Concrete and steel grit. Neutral for Necromunda / Zone Mortalis.",
+      png: { felt: "#3a3e46", grid: "rgba(220,220,230,0.1)", piece: "rgba(50,54,62,0.92)", line: "#a8b0bc" },
+    },
+    {
+      id: "snow",
+      label: "Snow · ice world / Fenris vibe",
+      idea: "Pale base, blue shadows in ruins. High contrast gold/red models.",
+      png: { felt: "#d8e4f0", grid: "rgba(60,90,130,0.14)", piece: "rgba(90,110,140,0.85)", line: "#5a7a9a" },
+    },
+    {
+      id: "marsh",
+      label: "Marsh · swamp / verdant leak",
+      idea: "Mud green + stagnant pools. Soft blob woods read as mangroves.",
+      png: { felt: "#243820", grid: "rgba(120,180,90,0.12)", piece: "rgba(40,55,32,0.9)", line: "#7aaa55" },
+    },
+    {
+      id: "void",
+      label: "Void night · classic Forge felt",
+      idea: "Dark desk glow. Default planner look when you want silhouette only.",
+      png: { felt: "#07101c", grid: "rgba(61,240,255,0.08)", piece: "rgba(18,48,90,0.9)", line: "#3df0ff" },
+    },
+  ];
 
   const EXTRAS = [
     { id: "wreck", sku: "LPF-STL-TA1", name: "Void-wreck hull", kind: "Crashed ship", w: 12, h: 8, shape: "extra" },
@@ -425,6 +477,10 @@
     },
   ];
 
+  function surfaceById(id) {
+    return SURFACES.find(function (s) { return s.id === id; }) || SURFACES[0];
+  }
+
   function sys(id) {
     return SYSTEMS.find(function (s) { return s.id === id; }) || SYSTEMS[0];
   }
@@ -565,9 +621,20 @@
     const gameSel = document.getElementById("map-game");
     const styleSel = document.getElementById("map-style");
     const deploySel = document.getElementById("map-deploy");
+    const surfaceSel = document.getElementById("map-surface");
     const system = sys(gameSel.value);
     const start = system.starts.find(function (s) { return s.id === styleSel.value; }) || system.starts[0];
-    return { system: system, start: start, deploy: deploySel.value, gameSel: gameSel, styleSel: styleSel, deploySel: deploySel };
+    const surface = surfaceById(surfaceSel ? surfaceSel.value : "grass");
+    return {
+      system: system,
+      start: start,
+      deploy: deploySel.value,
+      surface: surface,
+      gameSel: gameSel,
+      styleSel: styleSel,
+      deploySel: deploySel,
+      surfaceSel: surfaceSel,
+    };
   }
 
   function render() {
@@ -577,26 +644,36 @@
       state.game = c.system.id;
       state.start = c.start.id;
       state.deploy = c.deploy;
+      state.surface = c.surface.id;
       state.pieces = inflate(c.system, c.start);
       writeState(state);
     } else {
       state.deploy = c.deploy;
+      state.surface = c.surface.id;
       writeState(state);
     }
 
     const table = tableEl();
     table.style.setProperty("--map-aspect", String(c.system.table.w / c.system.table.h));
+    table.setAttribute("data-surface", c.surface.id);
     table.innerHTML =
-      '<div class="map-felt">' +
+      '<div class="map-felt" data-surface="' +
+      c.surface.id +
+      '">' +
       drawZones(c.deploy) +
       state.pieces.map(function (p) { return drawPiece(c.system, p); }).join("") +
       "</div>";
+
+    const ideas = document.getElementById("map-surface-ideas");
+    if (ideas) ideas.textContent = c.surface.idea;
 
     document.getElementById("map-hint").textContent =
       c.system.table.w +
       " × " +
       c.system.table.h +
-      " in · drag a shape · double-click rotate · " +
+      " in · " +
+      c.surface.label.split("·")[0].trim() +
+      " · drag a shape · double-click rotate · " +
       state.pieces.length +
       " objects";
     document.getElementById("map-meta").innerHTML =
@@ -604,7 +681,9 @@
       c.system.name +
       "</strong> · " +
       c.start.label +
-      "</p><p>" +
+      " · <em>" +
+      c.surface.label +
+      "</em></p><p>" +
       c.system.note +
       "</p>";
 
@@ -665,8 +744,11 @@
   function renderPiecesOnly() {
     const c = current();
     const state = readState();
-    const felt = tableEl().querySelector(".map-felt");
+    const table = tableEl();
+    table.setAttribute("data-surface", c.surface.id);
+    const felt = table.querySelector(".map-felt");
     if (!felt) return;
+    felt.setAttribute("data-surface", c.surface.id);
     felt.innerHTML =
       drawZones(c.deploy) +
       state.pieces.map(function (p) { return drawPiece(c.system, p); }).join("");
@@ -709,6 +791,7 @@
     const c = current();
     const state = readState();
     const pieces = state.pieces || [];
+    const pal = c.surface.png;
     const scale = 18;
     const pad = 36;
     const tw = Math.round(c.system.table.w * scale);
@@ -724,13 +807,22 @@
     ctx.fillText("Paradice Forge  ·  " + c.system.name + "  ·  " + c.start.label, 10, 22);
     ctx.fillStyle = "#7d93b8";
     ctx.font = "12px DM Sans, system-ui, sans-serif";
-    ctx.fillText(c.system.table.w + " × " + c.system.table.h + " in  ·  unofficial Forge start, not a GW map", 10, 34);
+    ctx.fillText(
+      c.system.table.w +
+        " × " +
+        c.system.table.h +
+        " in  ·  " +
+        c.surface.label.split("·")[0].trim() +
+        "  ·  unofficial Forge start",
+      10,
+      34
+    );
 
     ctx.save();
     ctx.translate(0, pad);
-    ctx.fillStyle = "#07101c";
+    ctx.fillStyle = pal.felt;
     ctx.fillRect(0, 0, tw, th);
-    ctx.strokeStyle = "rgba(61,240,255,0.08)";
+    ctx.strokeStyle = pal.grid;
     ctx.lineWidth = 1;
     for (let x = 0; x <= tw; x += scale) {
       ctx.beginPath();
@@ -766,30 +858,44 @@
       ctx.translate(x + w / 2, y + h / 2);
       ctx.rotate(((p.rot || 0) * Math.PI) / 180);
       ctx.translate(-w / 2, -h / 2);
+      ctx.shadowColor = "rgba(0,0,0,0.35)";
+      ctx.shadowBlur = 6;
+      ctx.shadowOffsetY = 2;
       if (p.shape === "tri") {
-        ctx.fillStyle = p.extra ? "rgba(61,240,255,0.45)" : "rgba(77,124,255,0.55)";
+        ctx.fillStyle = p.extra ? "rgba(61,240,255,0.45)" : pal.piece;
         ctx.beginPath();
         ctx.moveTo(0, h);
         ctx.lineTo(w, h);
         ctx.lineTo(0, 0);
         ctx.closePath();
         ctx.fill();
-        ctx.strokeStyle = "#3df0ff";
+        ctx.shadowColor = "transparent";
+        ctx.strokeStyle = pal.line;
         ctx.stroke();
       } else if (p.shape === "blob") {
-        ctx.fillStyle = "rgba(42,106,72,0.55)";
+        ctx.fillStyle = "rgba(42,106,72,0.7)";
         ctx.beginPath();
         ctx.ellipse(w / 2, h / 2, w / 2, h / 2, 0, 0, Math.PI * 2);
         ctx.fill();
+        ctx.shadowColor = "transparent";
         ctx.strokeStyle = "#5ee0c0";
         ctx.stroke();
       } else {
-        ctx.fillStyle = p.extra ? "rgba(61,240,255,0.38)" : p.shape === "line" ? "rgba(61,240,255,0.28)" : "rgba(18,48,90,0.9)";
-        ctx.strokeStyle = "#3df0ff";
+        ctx.fillStyle = p.extra
+          ? "rgba(61,240,255,0.38)"
+          : p.shape === "line"
+            ? "rgba(0,0,0,0.35)"
+            : pal.piece;
+        ctx.strokeStyle = pal.line;
         ctx.fillRect(0, 0, w, h);
+        ctx.shadowColor = "transparent";
         ctx.strokeRect(0, 0, w, h);
+        if (p.shape !== "line") {
+          ctx.fillStyle = "rgba(255,255,255,0.08)";
+          ctx.fillRect(0, 0, w, Math.max(3, h * 0.18));
+        }
       }
-      ctx.fillStyle = "#e4f0ff";
+      ctx.fillStyle = c.surface.id === "snow" || c.surface.id === "sand" ? "#1a1a22" : "#e4f0ff";
       ctx.font = "600 10px DM Sans, system-ui, sans-serif";
       ctx.fillText(String(p.label || "").slice(0, 22), 4, Math.min(h - 4, 14));
       ctx.restore();
@@ -803,7 +909,7 @@
     img.src = data;
     frame.classList.remove("hidden");
     dl.href = data;
-    const slug = (c.system.id + "-" + c.start.id).replace(/[^a-z0-9-]+/gi, "-");
+    const slug = (c.system.id + "-" + c.start.id + "-" + c.surface.id).replace(/[^a-z0-9-]+/gi, "-");
     dl.download = "paradice-forge-" + slug + ".png";
     dl.classList.remove("hidden");
     frame.scrollIntoView({ block: "nearest", behavior: "smooth" });
@@ -813,10 +919,20 @@
     const gameSel = document.getElementById("map-game");
     const styleSel = document.getElementById("map-style");
     const deploySel = document.getElementById("map-deploy");
+    const surfaceSel = document.getElementById("map-surface");
     if (!gameSel) return;
 
     const saved = readState();
     fill(gameSel, SYSTEMS, function (s) { return s.id; }, function (s) { return s.name; }, saved.game || "wh40k11");
+    if (surfaceSel) {
+      fill(
+        surfaceSel,
+        SURFACES,
+        function (s) { return s.id; },
+        function (s) { return s.label; },
+        saved.surface || "grass"
+      );
+    }
 
     function syncLists() {
       const system = sys(gameSel.value);
@@ -835,32 +951,63 @@
     syncLists();
     if (saved.start) styleSel.value = saved.start;
     if (saved.deploy) deploySel.value = saved.deploy;
+    if (surfaceSel && saved.surface) surfaceSel.value = saved.surface;
 
     gameSel.addEventListener("change", function () {
-      writeState({});
+      const keepSurface = surfaceSel ? surfaceSel.value : "grass";
+      writeState({ surface: keepSurface });
       selected = "";
       syncLists();
+      if (surfaceSel) surfaceSel.value = keepSurface;
       render();
     });
     styleSel.addEventListener("change", function () {
-      writeState({ game: gameSel.value, start: styleSel.value, deploy: deploySel.value, pieces: null });
+      writeState({
+        game: gameSel.value,
+        start: styleSel.value,
+        deploy: deploySel.value,
+        surface: surfaceSel ? surfaceSel.value : "grass",
+        pieces: null,
+      });
       selected = "";
       render();
     });
     deploySel.addEventListener("change", render);
+    if (surfaceSel) {
+      surfaceSel.addEventListener("change", function () {
+        const state = readState();
+        state.surface = surfaceSel.value;
+        writeState(state);
+        render();
+      });
+    }
 
     document.getElementById("map-reset").addEventListener("click", function () {
-      writeState({ game: gameSel.value, start: styleSel.value, deploy: deploySel.value, pieces: null });
+      writeState({
+        game: gameSel.value,
+        start: styleSel.value,
+        deploy: deploySel.value,
+        surface: surfaceSel ? surfaceSel.value : "grass",
+        pieces: null,
+      });
       selected = "";
       render();
     });
     document.getElementById("map-random").addEventListener("click", function () {
       const system = SYSTEMS[Math.floor(Math.random() * SYSTEMS.length)];
       const start = system.starts[Math.floor(Math.random() * system.starts.length)];
+      const surf = SURFACES[Math.floor(Math.random() * SURFACES.length)];
       gameSel.value = system.id;
       syncLists();
       styleSel.value = start.id;
-      writeState({ game: system.id, start: start.id, deploy: deploySel.value, pieces: null });
+      if (surfaceSel) surfaceSel.value = surf.id;
+      writeState({
+        game: system.id,
+        start: start.id,
+        deploy: deploySel.value,
+        surface: surf.id,
+        pieces: null,
+      });
       render();
     });
     document.getElementById("map-rotate").addEventListener("click", function () {

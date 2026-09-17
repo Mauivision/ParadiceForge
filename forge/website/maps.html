@@ -19,8 +19,8 @@
         <p class="eyebrow">Environment map · drag the shapes</p>
         <h1 class="brand">Build the <em>table.</em></h1>
         <p class="lede">
-          Pick the game, a Forge start, then slide ruins, wedges, and shop extras
-          around like a real environment. Double-tap a piece to rotate.
+          Pick the game, a Forge start, a table surface (grass, sand, ash, metal…),
+          then slide ruins, wedges, and shop extras around. Double-tap a piece to rotate.
         </p>
       </div>
     </header>
@@ -44,6 +44,10 @@
             <select id="map-style"></select>
           </label>
           <label>
+            Table surface
+            <select id="map-surface"></select>
+          </label>
+          <label>
             Deployment overlay
             <select id="map-deploy"></select>
           </label>
@@ -56,6 +60,7 @@
           </div>
         </div>
 
+        <p class="map-surface-ideas" id="map-surface-ideas"></p>
         <p class="map-hint" id="map-hint"></p>
         <div id="map-table" class="map-table" aria-label="Draggable environment map"></div>
         <div class="map-picture-bar">
