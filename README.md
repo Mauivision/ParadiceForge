@@ -25,7 +25,7 @@ Or run `C:\Users\hawai\OPEN-PARADICE-FORGE.cmd`
 
 ## Make the next products
 
-Ready-to-paste prompts for Meshy-style STLs, grey print-on-demand, merch art, and desk paint-on-demand live in [`prompts/stl-print-paint.md`](prompts/stl-print-paint.md). Geometric STLs and merch masters start in [`make/`](make/README.md) and [`img/merch/`](img/merch/README.md). They match the catalog SKUs and the cinematic plates. No invented checkout URLs.
+Ready-to-paste prompts for Meshy-style STLs, grey print-on-demand, merch art, and desk paint-on-demand live in [`prompts/stl-print-paint.md`](prompts/stl-print-paint.md). Files that exist: [`make.html`](make.html), [`make/`](make/README.md), [`img/merch/`](img/merch/README.md). No invented checkout URLs.
 
 ## Edit
 

@@ -24,7 +24,8 @@ Live: https://mauivision.github.io/ParadiceForge/
 | File | Lane |
 |------|------|
 | `make/stl/LPF-STL-C3.stl` | STL — dice tray, printable |
-| `make/stl/PF-MARKER-40.stl` | sample objective, **no SKU** |
+| `make/stl/PF-WALL-*.stl`, `PF-RUBBLE.stl` | board-frame samples, **no SKU** |
+| `make/stl/PF-MARKER-40.stl`, `PF-TOKEN-TRAY.stl` | desk samples, **no SKU** |
 | `img/merch/*.png` + `forge-mark.svg` | POD masters — Printful URL still empty |
 | `make/paint/LPF-PHY-TA2P.txt` | paint-on-demand recipe for the nave |
 | `make/license/PERSONAL-USE.txt` | zip license |

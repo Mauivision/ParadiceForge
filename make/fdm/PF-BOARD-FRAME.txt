@@ -1,0 +1,20 @@
+Board-frame scatter (not catalog SKUs)
+=====================================
+
+These are original geometric ruins to put around a table while the cinematic
+centerpiece meshes (nave / wreck / scrap / stack) are still image-to-3D.
+
+Print on the plate, no supports, 0.2 mm layers, PLA, 15% infill.
+
+| File | Size (approx) | Use |
+|------|----------------|-----|
+| PF-WALL-LONG.stl | 120 x 24 x 58 mm | Doorway ruin |
+| PF-WALL-SHORT.stl | 80 x 22 x 44 mm | Broken wall |
+| PF-WALL-CORNER.stl | 70 x 70 x 50 mm | L-corner |
+| PF-RUBBLE.stl | ~48 x 32 x 26 mm | Scatter (print 4–8) |
+| PF-MARKER-40.stl | 40 mm disc | Objective |
+| PF-TOKEN-TRAY.stl | 72 x 28 x 8 mm | Tokens / dice wells |
+
+They are board frames, not LPF-STL-TA2. Do not list them as the shrine pack.
+
+Personal use: make/license/PERSONAL-USE.txt

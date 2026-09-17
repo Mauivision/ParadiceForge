@@ -116,10 +116,81 @@ def marker_40():
     return m
 
 
+def ruin_wall_long():
+    """Board-frame wall ~6 in. Doorway ruin. Not a catalog SKU. Not the nave centerpiece."""
+    m = Mesh()
+    # Left / right piers
+    m.box(0, 0, 0, 22, 24, 48)
+    m.box(98, 0, 0, 120, 24, 42)
+    # Threshold
+    m.box(22, 0, 0, 98, 24, 6)
+    # Lintel
+    m.box(18, 0, 36, 102, 24, 48)
+    # Broken crenels
+    m.box(0, 0, 48, 18, 24, 58)
+    m.box(36, 0, 48, 54, 24, 54)
+    m.box(88, 0, 48, 108, 24, 52)
+    # Buttress (keep X >= 0 for slicers)
+    m.box(0, 4, 0, 8, 20, 32)
+    return m
+
+
+def ruin_wall_short():
+    """Shorter broken wall ~3.2 in. Not a catalog SKU."""
+    m = Mesh()
+    m.box(0, 0, 0, 80, 22, 28)
+    m.box(0, 0, 28, 22, 22, 44)
+    m.box(50, 0, 28, 80, 22, 38)
+    m.box(22, 0, 28, 38, 22, 32)
+    return m
+
+
+def ruin_corner():
+    """L-corner ruin. Not a catalog SKU."""
+    m = Mesh()
+    m.box(0, 0, 0, 70, 22, 40)
+    m.box(0, 0, 0, 22, 70, 40)
+    m.box(0, 0, 40, 28, 22, 50)
+    m.box(0, 0, 40, 22, 28, 48)
+    return m
+
+
+def rubble_pile():
+    """Scatter rubble. Print as many as the table needs. Not a catalog SKU."""
+    m = Mesh()
+    m.box(0, 0, 0, 42, 28, 10)
+    m.box(8, 6, 10, 30, 24, 18)
+    m.box(18, 4, 18, 34, 18, 26)
+    m.box(24, 10, 0, 48, 32, 8)
+    m.box(0, 8, 0, 10, 22, 7)
+    return m
+
+
+def token_tray():
+    """Small token / dice-well tray. Not a catalog SKU."""
+    m = Mesh()
+    L, W, H, wall, floor = 72.0, 28.0, 8.0, 2.4, 2.2
+    m.box(0, 0, 0, L, W, floor)
+    m.box(0, 0, floor, L, wall, H)
+    m.box(0, W - wall, floor, L, W, H)
+    m.box(0, wall, floor, wall, W - wall, H)
+    m.box(L - wall, wall, floor, L, W - wall, H)
+    # Dividers — five wells
+    for i in range(1, 5):
+        x = wall + i * ((L - 2 * wall) / 5.0)
+        m.box(x - 1.0, wall, floor, x + 1.0, W - wall, H)
+    return m
+
+
 def main():
     root = os.path.abspath(OUT)
     dice_tray().write(os.path.join(root, "LPF-STL-C3.stl"), "LPF-STL-C3")
     marker_40().write(os.path.join(root, "PF-MARKER-40.stl"), "PF-MARKER-40")
+    ruin_wall_long().write(os.path.join(root, "PF-WALL-LONG.stl"), "PF-WALL-LONG")
+    ruin_wall_short().write(os.path.join(root, "PF-WALL-SHORT.stl"), "PF-WALL-SHORT")
+    ruin_corner().write(os.path.join(root, "PF-WALL-CORNER.stl"), "PF-WALL-CORNER")
+    rubble_pile().write(os.path.join(root, "PF-RUBBLE.stl"), "PF-RUBBLE")
+    token_tray().write(os.path.join(root, "PF-TOKEN-TRAY.stl"), "PF-TOKEN-TRAY")
 
 
 if __name__ == "__main__":

@@ -53,6 +53,7 @@
     commissions: "img/plates/commission.webp",
     creations: "img/plates/books.webp",
     worlds: "img/plates/books.webp",
+    make: "img/plates/cathedral.webp",
   };
 
   function sceneForPage() {
@@ -286,6 +287,7 @@
       '<div class="foot-links">' +
       '<a href="creations.html">Creations</a>' +
       '<a href="shop.html">Shop</a>' +
+      '<a href="make.html">Make</a>' +
       '<a href="maps.html">Maps</a>' +
       '<a href="commissions.html">Commissions</a>' +
       '<a href="worlds.html">Tree</a>' +
