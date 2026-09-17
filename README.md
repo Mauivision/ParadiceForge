@@ -36,6 +36,7 @@ Ready-to-paste prompts for Meshy-style STLs, grey print-on-demand, merch art, an
 | `js/worlds.js` | Books and story tree |
 | `img/products/SKU.jpg` | Real product photos (branded plates are the fallback) |
 | `img/merch/` | POD print masters (nave, wreck, scrap, mark) — shop URL empty |
+| `img/logos/` | Logo samples (SVG lock + raster directions) |
 
 Checkout is off until live shop URLs exist. Catalog prices are drafts for planning — they are not a live cart.
 

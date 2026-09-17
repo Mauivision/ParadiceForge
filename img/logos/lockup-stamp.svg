@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Paradice Forge stamp">
+  <circle cx="256" cy="256" r="248" fill="#090704" stroke="#d4af5a" stroke-width="6"/>
+  <circle cx="256" cy="256" r="220" fill="none" stroke="#d4af5a" stroke-width="2"/>
+  <rect x="176" y="176" width="160" height="160" rx="16" fill="none" stroke="#d4af5a" stroke-width="7"/>
+  <path d="M214 304h84M226 304v-42h60v42M238 262v-26h36v26" fill="none" stroke="#d4af5a" stroke-width="6"/>
+  <text x="256" y="128" text-anchor="middle" fill="#d4af5a" font-family="Cinzel, Times, serif" font-size="18" letter-spacing="4">PARADICE FORGE</text>
+  <text x="256" y="412" text-anchor="middle" fill="#d4af5a" font-family="Cormorant Garamond, Georgia, serif" font-size="16" font-style="italic">Love what I do, Love what you do.</text>
+</svg>

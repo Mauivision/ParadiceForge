@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 640" role="img" aria-label="Paradice Forge">
+  <rect width="512" height="640" fill="#090704"/>
+  <rect x="156" y="72" width="200" height="200" rx="22" fill="none" stroke="#d4af5a" stroke-width="8"/>
+  <path d="M204 232h104M220 232v-52h72v52M236 180v-32h40v32" fill="none" stroke="#d4af5a" stroke-width="7"/>
+  <text x="256" y="360" text-anchor="middle" fill="#f3ead8" font-family="Cormorant Garamond, Georgia, serif" font-size="54" font-weight="600">Paradice</text>
+  <text x="256" y="418" text-anchor="middle" fill="#d4af5a" font-family="Cormorant Garamond, Georgia, serif" font-size="54" font-style="italic" font-weight="500">Forge</text>
+  <line x1="186" y1="448" x2="256" y2="448" stroke="#d4af5a" stroke-width="2"/>
+  <text x="256" y="492" text-anchor="middle" fill="#d4af5a" font-family="Cinzel, Times, serif" font-size="12" letter-spacing="2.4">LOVE WHAT I DO, LOVE WHAT YOU DO.</text>
+</svg>

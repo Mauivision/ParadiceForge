@@ -40,4 +40,4 @@ Illustrated / generated workshop art for the site until studio photos exist. Ori
 
 Matching `.svg` files are gold-on-charcoal fallbacks if WebP cannot load.
 
-Print-on-demand masters (not a live shop): `img/merch/`.
+Print-on-demand masters (not a live shop): `img/merch/`. Logo samples: `img/logos/`.
