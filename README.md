@@ -14,13 +14,18 @@ Repo: https://github.com/Mauivision/ParadiceForge
 
 ## Local
 
-From this folder:
+This repo’s `main` is what GitHub Pages serves. On the Hawaii PC, pull before you open the site:
 
 ```powershell
+git pull origin main
 python -m http.server 8767 --bind 127.0.0.1
 ```
 
 Or run `C:\Users\hawai\OPEN-PARADICE-FORGE.cmd`
+
+## Make the next products
+
+Ready-to-paste prompts for Meshy-style STLs, grey print-on-demand, merch art, and desk paint-on-demand live in [`prompts/stl-print-paint.md`](prompts/stl-print-paint.md). They match the catalog SKUs and the cinematic plates. No invented checkout URLs.
 
 ## Edit
 

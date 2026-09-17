@@ -13,8 +13,12 @@ Static public site for **Paradice Forge** (store / home). Channel brand stays **
 
 Working static site. Checkout, Discord, Patreon, eBay, and print-on-demand links stay empty until real URLs are pasted into `js/config.js`. Catalog prices are drafts, not a live cart. Branded plates in `img/` stand in until SKU photos land in `img/products/`.
 
+Make-prompts for STLs, print on demand, and paint on demand: `prompts/stl-print-paint.md`.
+
 ## Next
 
-1. Confirm GitHub Pages Action on `main`.
-2. Paste Discord / Patreon / tip URLs.
-3. Soft-tease on YouTube after 2–3 strong uploads.
+1. On the Hawaii PC: `git pull origin main` then `OPEN-PARADICE-FORGE.cmd`.
+2. Generate pack #1 (ruined nave, `LPF-STL-TA2`) from the plate + prompt. Cleanup → test print → `img/products/LPF-STL-TA2.jpg`.
+3. Keep digital / grey print / painted commission as three listings.
+4. Paste Discord / Patreon / tip / Lemon Squeezy / farm / Printful URLs only when the accounts exist.
+5. Soft-tease on YouTube after 2–3 strong uploads.
