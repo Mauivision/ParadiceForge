@@ -24,4 +24,6 @@ Painted tiles to pick a merch feel. They are not all geometrically identical to 
 | `sample-horizontal.png` | Wide banner |
 | `sample-icon.png` | 3D relief icon |
 | `sample-stamp.png` | Coin / stamp |
-| `sample-plate.png` | Engraved desk plate |
+| `sample-plate.png` | Engraved desk plate — original pick |
+| `sample-plate-lock.png` | Plate tweak A (lintel inside, motto) |
+| `sample-plate-alt.png` | Plate tweak B (cleaner posts, motto) |
