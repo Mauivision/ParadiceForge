@@ -64,6 +64,7 @@ window.FORGE_CONFIG = {
       letter: "B",
       name: "Ruined cathedral",
       blurb: "Broken nave and shrine — gothic midboard drama.",
+      plate: "cathedral",
       recommended: true,
     },
     {
@@ -71,18 +72,21 @@ window.FORGE_CONFIG = {
       letter: "A",
       name: "Void wreck",
       blurb: "Crashed hull ribs and hatches — sky crusade centerpiece.",
+      plate: "wreck",
     },
     {
       id: "scrap",
       letter: "C",
       name: "Scrap fortress",
       blurb: "Yellow-rust keep — matches the Armageddon mob.",
+      plate: "scrap",
     },
     {
       id: "manufactorum",
       letter: "D",
       name: "Manufactorum stack",
       blurb: "Chimneys, gantries, slag — industrial Armageddon.",
+      plate: "manufactorum",
     },
   ],
 };

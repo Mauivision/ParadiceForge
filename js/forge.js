@@ -83,10 +83,14 @@
   function plateKey(p) {
     if (p && p.plate) return p.plate.replace(/^img\/plates\//, "").replace(/\.(webp|svg|jpg|png)$/, "");
     const s = (p && p.sku) || "";
+    if (/TA1|WRECK/i.test(s)) return "wreck";
+    if (/TA3|SCRAP/i.test(s)) return "scrap";
+    if (/TA2|NAVE|CATHEDRAL/i.test(s)) return "cathedral";
+    if (/STACK|MANUFACTOR/i.test(s)) return "manufactorum";
     if (/BA|LEMARTES|DANTE|JUMP/i.test(s)) return "ba";
     if (/ORK|GHAZ/i.test(s)) return "ork";
     if (p && p.lane === "hero") return "hero";
-    if (p && (p.lane === "stl" || p.lane === "terrain")) return "terrain";
+    if (p && (p.lane === "stl" || p.lane === "terrain")) return "cathedral";
     if (p && p.lane === "book") return "books";
     return "army";
   }
@@ -393,14 +397,14 @@
         const rec = opt.recommended
           ? '<span class="pill">First-drop pick</span>'
           : "";
-        const art = { cathedral: "terrain", wreck: "terrain", scrap: "ork", manufactorum: "army" };
+        const art = opt.plate || { cathedral: "cathedral", wreck: "wreck", scrap: "scrap", manufactorum: "manufactorum" }[opt.id] || "cathedral";
         return (
           '<button type="button" class="card vote-card card-media' +
           (picked === opt.id ? " is-picked" : "") +
           '" data-vote="' +
           opt.id +
           '">' +
-          plateMedia(art[opt.id] || "terrain", opt.letter, "focal-card") +
+          plateMedia(art, opt.name, "focal-card") +
           '<div class="card-body">' +
           rec +
           '<div class="letter">' +
@@ -720,4 +724,5 @@
   renderWorlds();
   renderCreations();
   bindFallbacks(document);
+  window.FORGE_bindFallbacks = bindFallbacks;
 })();

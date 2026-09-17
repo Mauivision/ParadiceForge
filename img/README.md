@@ -28,7 +28,11 @@ Illustrated / generated workshop art for the site until studio photos exist. Ori
 | `img/plates/ork.webp` | Scrap-clan / Ork tray items |
 | `img/plates/hero.webp` | Hero singles |
 | `img/plates/army.webp` | Army trays / shop |
-| `img/plates/terrain.webp` | STLs and printed terrain |
+| `img/plates/cathedral.webp` | Ruined nave / shrine (broken nave, collapsed roof, shrine light) |
+| `img/plates/wreck.webp` | Void-wreck hull (ribs, hatches, modular halves) |
+| `img/plates/scrap.webp` | Scrap keep (riveted plates, gun ports, yellow-rust) |
+| `img/plates/manufactorum.webp` | Manufactorum stack (chimneys, gantries, slag) |
+| `img/plates/terrain.webp` | Alias of the nave plate for older refs |
 | `img/plates/books.webp` | Library / worlds |
 | `img/plates/commission.webp` | Commissions / community |
 

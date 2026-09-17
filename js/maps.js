@@ -6,11 +6,11 @@
   const STORE = "paradice-forge-env-map";
 
   const EXTRAS = [
-    { id: "wreck", sku: "LPF-STL-TA1", name: "Void-wreck hull", kind: "Crashed ship", w: 12, h: 8, shape: "extra" },
-    { id: "nave", sku: "LPF-STL-TA2", name: "Ruined nave / shrine", kind: "Cathedral", w: 10, h: 12, shape: "extra" },
-    { id: "scrap", sku: "LPF-STL-TA3", name: "Scrap keep", kind: "Fort", w: 10, h: 10, shape: "extra" },
-    { id: "print", sku: "LPF-PHY-TA2", name: "Ruined nave — print", kind: "Cathedral", w: 10, h: 12, shape: "extra" },
-    { id: "stack", sku: "", name: "Manufactorum stack", kind: "Factory", w: 8, h: 10, shape: "extra" },
+    { id: "wreck", sku: "LPF-STL-TA1", name: "Void-wreck hull", kind: "Crashed ship", w: 12, h: 8, shape: "extra", plate: "wreck" },
+    { id: "nave", sku: "LPF-STL-TA2", name: "Ruined nave / shrine", kind: "Cathedral", w: 10, h: 12, shape: "extra", plate: "cathedral" },
+    { id: "scrap", sku: "LPF-STL-TA3", name: "Scrap keep", kind: "Fort", w: 10, h: 10, shape: "extra", plate: "scrap" },
+    { id: "print", sku: "LPF-PHY-TA2", name: "Ruined nave — print", kind: "Cathedral", w: 10, h: 12, shape: "extra", plate: "cathedral" },
+    { id: "stack", sku: "", name: "Manufactorum stack", kind: "Factory", w: 8, h: 10, shape: "extra", plate: "manufactorum" },
   ];
 
   const DEPLOYS = {
@@ -609,18 +609,28 @@
       "</p>";
 
     document.getElementById("map-extras").innerHTML = EXTRAS.map(function (e) {
+      const plate = e.plate || "cathedral";
       return (
-        '<button type="button" class="extra-chip" data-add="' +
+        '<button type="button" class="extra-chip card-media" data-add="' +
         e.id +
-        '"><span class="pill">' +
+        '"><div class="focal focal-card"><img src="img/plates/' +
+        plate +
+        '.webp" alt="" data-fallback="img/plates/' +
+        plate +
+        '.svg"><span class="focal-caption">' +
+        e.kind +
+        '</span></div><span class="extra-copy"><span class="pill">' +
         e.kind +
         "</span><strong>" +
         e.name +
         "</strong>" +
         (e.sku ? '<span class="sku">' + e.sku + "</span>" : "") +
-        "</button>"
+        "</span></button>"
       );
     }).join("");
+    if (window.FORGE_bindFallbacks) {
+      window.FORGE_bindFallbacks(document.getElementById("map-extras"));
+    }
   }
 
   function bindTable() {
