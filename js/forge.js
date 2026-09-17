@@ -41,12 +41,45 @@
     document.head.appendChild(link);
   }
 
+  const PAGE_SCENE = {
+    home: "img/hero.webp",
+    about: "img/hero.webp",
+    shop: "img/plates/army.webp",
+    prices: "img/plates/army.webp",
+    terrain: "img/plates/cathedral.webp",
+    community: "img/plates/cathedral.webp",
+    maps: "img/plates/wreck.webp",
+    adventure: "img/plates/ba.webp",
+    commissions: "img/plates/commission.webp",
+    creations: "img/plates/books.webp",
+    worlds: "img/plates/books.webp",
+  };
+
+  function sceneForPage() {
+    const custom = document.body.getAttribute("data-scene");
+    if (custom) return custom;
+    return PAGE_SCENE[page] || "img/hero.webp";
+  }
+
   function renderAtmosphere() {
     if (document.querySelector(".atmosphere")) return;
+    const src = sceneForPage();
+    document.documentElement.style.setProperty("--scene", 'url("' + src + '")');
     const el = document.createElement("div");
     el.className = "atmosphere";
     el.setAttribute("aria-hidden", "true");
-    el.innerHTML = '<div class="atm-wash"></div><div class="atm-grain"></div><div class="atm-vignette"></div>';
+    el.innerHTML =
+      '<div class="atm-scene"></div>' +
+      '<div class="atm-wash"></div>' +
+      '<div class="atm-smoke">' +
+      '<span class="plume plume-a"></span>' +
+      '<span class="plume plume-b"></span>' +
+      '<span class="plume plume-c"></span>' +
+      '<span class="wisp wisp-a"></span>' +
+      '<span class="wisp wisp-b"></span>' +
+      "</div>" +
+      '<div class="atm-grain"></div>' +
+      '<div class="atm-vignette"></div>';
     document.body.insertBefore(el, document.body.firstChild);
   }
 

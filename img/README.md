@@ -17,6 +17,8 @@ img/hero.jpg
 
 Landscape, low light, subject sharp, background soft. No box art. No Games Workshop product photography.
 
+The site uses these plates as full-bleed cinematic scenes (with drifting smoke) behind each page. Until a studio `img/hero.jpg` exists, `img/hero.webp` is both the home scene and the branded fallback.
+
 ## Branded plates (fallbacks)
 
 Illustrated / generated workshop art for the site until studio photos exist. Original grimdark hobby look — not GW IP, not a live product photo.
