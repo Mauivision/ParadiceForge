@@ -52,18 +52,28 @@
 
   function bindFallbacks(root) {
     (root || document).querySelectorAll("img[data-fallback]").forEach(function (img) {
+      if (img.getAttribute("data-fb-on") === "1") return;
+      img.setAttribute("data-fb-on", "1");
+      const chain = (img.getAttribute("data-fallback") || "")
+        .split("|")
+        .map(function (s) { return s.trim(); })
+        .filter(Boolean);
+      let step = 0;
+      let locked = false;
       function onErr() {
-        const raw = img.getAttribute("data-fallback") || "";
-        const chain = raw.split("|").map(function (s) { return s.trim(); }).filter(Boolean);
-        const current = img.getAttribute("src") || img.src || "";
-        let i = 0;
-        while (i < chain.length && current.indexOf(chain[i]) !== -1) i += 1;
-        if (i < chain.length) {
-          img.src = chain[i];
-          if (i >= chain.length - 1) img.removeEventListener("error", onErr);
-        } else {
-          img.removeEventListener("error", onErr);
+        if (locked || step >= chain.length) {
+          if (step >= chain.length) img.removeEventListener("error", onErr);
+          return;
         }
+        locked = true;
+        const next = chain[step];
+        step += 1;
+        img.src = next;
+        window.setTimeout(function () {
+          locked = false;
+          if (img.complete && img.naturalWidth === 0 && step < chain.length) onErr();
+        }, 0);
+        if (step >= chain.length) img.removeEventListener("error", onErr);
       }
       img.addEventListener("error", onErr);
       if (img.complete && img.naturalWidth === 0) onErr();
