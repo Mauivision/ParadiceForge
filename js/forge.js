@@ -558,6 +558,9 @@
     const guide = p.hrefGuide
       ? '<a class="btn btn-ghost" href="' + p.hrefGuide + '">Open 2k price guide</a>'
       : "";
+    const fileBtn = p.file
+      ? '<a class="btn btn-ghost" href="' + p.file + '" download>Preview STL (personal use)</a>'
+      : "";
     host.innerHTML =
       '<p class="eyebrow"><a href="shop.html">Shop</a> · ' +
       p.lane +
@@ -585,6 +588,7 @@
       "</p>" +
       '<div class="cta-row" style="margin-top:1.25rem">' +
       '<a class="btn btn-primary is-pending" href="#coming">Checkout not open</a>' +
+      fileBtn +
       guide +
       '<a class="btn btn-ghost" href="shop.html">All test items</a>' +
       "</div></aside></div>";

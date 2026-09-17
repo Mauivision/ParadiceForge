@@ -1,0 +1,20 @@
+Paradice Forge — Personal Use License
+=====================================
+
+These files are original Paradice Forge work (Aaron / Paradice Miniatures).
+
+You MAY
+- Print them for your own table, desk, or personal collection.
+- Modify the mesh for your own printer.
+
+You MAY NOT
+- Sell the files, prints, or derivatives.
+- Upload them to a marketplace.
+- Claim they are official Games Workshop product. They are not.
+- Use Games Workshop names, marks, or sculpts in a listing of these files.
+
+Commercial / merch / farm-print rights are a separate conversation.
+They are not granted by this file.
+
+Motto: Love what I do, Love what you do.
+Paradice = paradise + dice.

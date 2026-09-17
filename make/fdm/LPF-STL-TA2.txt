@@ -1,0 +1,16 @@
+LPF-STL-TA2 — Ruined nave / shrine
+==================================
+
+No printable mesh in this folder yet. The look target is img/plates/cathedral.webp.
+
+Generate with the prompt in prompts/stl-print-paint.md (image-to-3D, plate attached).
+Then cleanup: manifold, 2.2 mm min wall, drain holes, FDM cut if larger than 220 mm bed.
+Footprint target: 10 x 12 inches on the table (see js/maps.js extra "nave").
+
+When the mesh is real:
+- Drop STL here as make/stl/LPF-STL-TA2.stl (and _A / _B if split)
+- Photo the test print as img/products/LPF-STL-TA2.jpg
+- Grey farm listing is LPF-PHY-TA2 (unpainted)
+- Desk paint listing is LPF-PHY-TA2P (art, not an STL)
+
+Do not sell a GW-named shrine. Original gothic sci-fi ruin only.

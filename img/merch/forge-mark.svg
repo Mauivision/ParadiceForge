@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="Paradice Forge">
+  <rect width="1024" height="1024" fill="#090704"/>
+  <rect x="112" y="96" width="800" height="800" rx="48" fill="none" stroke="#d4af5a" stroke-width="18"/>
+  <g fill="none" stroke="#d4af5a" stroke-width="22" stroke-linecap="square">
+    <path d="M320 640h384"/>
+    <path d="M368 640V448h288v192"/>
+    <path d="M432 448V320h160v128"/>
+  </g>
+  <text x="512" y="940" text-anchor="middle" fill="#d4af5a" font-family="Cinzel, Times, serif" font-size="42" letter-spacing="10">PARADICE FORGE</text>
+</svg>

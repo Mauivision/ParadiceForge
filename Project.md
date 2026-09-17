@@ -13,12 +13,12 @@ Static public site for **Paradice Forge** (store / home). Channel brand stays **
 
 Working static site. Checkout, Discord, Patreon, eBay, and print-on-demand links stay empty until real URLs are pasted into `js/config.js`. Catalog prices are drafts, not a live cart. Branded plates in `img/` stand in until SKU photos land in `img/products/`.
 
-Make-prompts for STLs, print on demand, and paint on demand: `prompts/stl-print-paint.md`.
+Make-prompts: `prompts/stl-print-paint.md`. Printable dice tray: `make/stl/LPF-STL-C3.stl`. POD masters: `img/merch/`.
 
 ## Next
 
-1. On the Hawaii PC: `git pull origin main` then `OPEN-PARADICE-FORGE.cmd`.
-2. Generate pack #1 (ruined nave, `LPF-STL-TA2`) from the plate + prompt. Cleanup → test print → `img/products/LPF-STL-TA2.jpg`.
+1. On the Hawaii PC: `git pull origin main` then print `make/stl/LPF-STL-C3.stl`.
+2. Generate pack #1 nave mesh (`LPF-STL-TA2`) from the plate + prompt. Cleanup → test print → `img/products/LPF-STL-TA2.jpg`.
 3. Keep digital / grey print / painted commission as three listings.
 4. Paste Discord / Patreon / tip / Lemon Squeezy / farm / Printful URLs only when the accounts exist.
 5. Soft-tease on YouTube after 2–3 strong uploads.

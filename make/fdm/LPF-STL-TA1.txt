@@ -1,0 +1,6 @@
+LPF-STL-TA1 — Void-wreck hull
+=============================
+
+No printable mesh in this folder yet. Look target: img/plates/wreck.webp
+Footprint: 12 x 8 in. Modular halves. Prompt: prompts/stl-print-paint.md
+When the mesh exists: make/stl/LPF-STL-TA1.stl (and _A / _B).

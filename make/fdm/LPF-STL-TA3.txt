@@ -1,0 +1,6 @@
+LPF-STL-TA3 — Scrap keep
+========================
+
+No printable mesh in this folder yet. Look target: img/plates/scrap.webp
+Footprint: 10 x 10 in. Prompt: prompts/stl-print-paint.md
+When the mesh exists: make/stl/LPF-STL-TA3.stl

@@ -19,6 +19,18 @@ Then `OPEN-PARADICE-FORGE.cmd` → http://127.0.0.1:8767/
 
 Live: https://mauivision.github.io/ParadiceForge/
 
+## Files that exist now
+
+| File | Lane |
+|------|------|
+| `make/stl/LPF-STL-C3.stl` | STL — dice tray, printable |
+| `make/stl/PF-MARKER-40.stl` | sample objective, **no SKU** |
+| `img/merch/*.png` + `forge-mark.svg` | POD masters — Printful URL still empty |
+| `make/paint/LPF-PHY-TA2P.txt` | paint-on-demand recipe for the nave |
+| `make/license/PERSONAL-USE.txt` | zip license |
+
+Nave / wreck / scrap / stack **terrain STLs are not meshes yet.** Generate those with the prompts below.
+
 ## Three products — never one cart
 
 | Lane | What it is | How it is made | How it ships |

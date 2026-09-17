@@ -1,0 +1,12 @@
+LPF-PHY-TA2P — Paint the nave (desk)
+====================================
+
+Start from a grey print of LPF-STL-TA2. Match img/plates/cathedral.webp — not a box scheme.
+
+Stone: charcoal + soot, not bright grey.
+Metal / pipes: gold auramite, not chrome.
+Shrine: warm candle glaze, not neon.
+Rubble: dusty. No static-grass pretty.
+
+Photograph in Hawaii-desk light. File as img/products/LPF-PHY-TA2P.jpg when the piece exists.
+Price as art. It is not the digital STL and not an army tray.

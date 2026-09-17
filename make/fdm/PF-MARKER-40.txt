@@ -1,0 +1,9 @@
+PF-MARKER-40 — 40 mm objective disc
+===================================
+
+Not a catalog SKU. Tier C sample for the desk.
+
+Diameter 40 mm, 3.2 mm thick, raised forge-gate mark (original, not an aquila).
+PLA, 0.2 mm layers, no supports, mark UP.
+
+If it prints clean, it can enter js/catalog.js later. Do not invent a SKU here.

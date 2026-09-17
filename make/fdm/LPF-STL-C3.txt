@@ -1,0 +1,16 @@
+LPF-STL-C3 — Forge dice tray
+============================
+
+Size: 140 x 90 x 12 mm (X Y Z)
+Walls: 5 mm   Floor: 4 mm   Raised mark: 0.8 mm
+Material: PLA or PETG
+Nozzle: 0.4 mm   Layer: 0.2 mm   Infill: 15% gyroid
+Plate: clean PEI, brim optional
+Supports: none
+Orientation: mark facing UP (Z)
+
+Print, knock the brim, drop dice in. Optional: 1 mm felt cut for the well.
+
+Personal use: make/license/PERSONAL-USE.txt
+File: make/stl/LPF-STL-C3.stl
+Checkout is off. This is a test print for the desk, not a live cart.
