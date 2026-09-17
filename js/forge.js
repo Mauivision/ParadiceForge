@@ -33,11 +33,11 @@
   }
 
   function ensureFonts() {
-    if (document.getElementById("forge-cinzel")) return;
+    if (document.getElementById("forge-fonts")) return;
     const link = document.createElement("link");
-    link.id = "forge-cinzel";
+    link.id = "forge-fonts";
     link.rel = "stylesheet";
-    link.href = "https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&display=swap";
+    link.href = "https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap";
     document.head.appendChild(link);
   }
 
@@ -53,36 +53,67 @@
   function bindFallbacks(root) {
     (root || document).querySelectorAll("img[data-fallback]").forEach(function (img) {
       function onErr() {
-        img.removeEventListener("error", onErr);
-        const next = img.getAttribute("data-fallback");
-        if (next && img.src.indexOf(next) === -1) img.src = next;
+        const raw = img.getAttribute("data-fallback") || "";
+        const chain = raw.split("|").map(function (s) { return s.trim(); }).filter(Boolean);
+        const current = img.getAttribute("src") || img.src || "";
+        let i = 0;
+        while (i < chain.length && current.indexOf(chain[i]) !== -1) i += 1;
+        if (i < chain.length) {
+          img.src = chain[i];
+          if (i >= chain.length - 1) img.removeEventListener("error", onErr);
+        } else {
+          img.removeEventListener("error", onErr);
+        }
       }
       img.addEventListener("error", onErr);
       if (img.complete && img.naturalWidth === 0) onErr();
     });
   }
 
-  function plateFor(p) {
-    if (p.plate) return p.plate;
-    const s = p.sku || "";
-    if (/BA|LEMARTES|DANTE|JUMP/i.test(s)) return "img/plates/ba.svg";
-    if (/ORK|GHAZ/i.test(s)) return "img/plates/ork.svg";
-    if (p.lane === "hero") return "img/plates/hero.svg";
-    if (p.lane === "stl" || p.lane === "terrain") return "img/plates/terrain.svg";
-    return "img/plates/army.svg";
+  function plateKey(p) {
+    if (p && p.plate) return p.plate.replace(/^img\/plates\//, "").replace(/\.(webp|svg|jpg|png)$/, "");
+    const s = (p && p.sku) || "";
+    if (/BA|LEMARTES|DANTE|JUMP/i.test(s)) return "ba";
+    if (/ORK|GHAZ/i.test(s)) return "ork";
+    if (p && p.lane === "hero") return "hero";
+    if (p && (p.lane === "stl" || p.lane === "terrain")) return "terrain";
+    if (p && p.lane === "book") return "books";
+    return "army";
+  }
+
+  function plateChain(p) {
+    const key = plateKey(p);
+    return "img/plates/" + key + ".webp|img/plates/" + key + ".svg";
   }
 
   function mediaHtml(p, extraClass) {
-    const photo = p.image || ("img/products/" + p.sku + ".jpg");
+    const photo = (p && p.image) || ("img/products/" + p.sku + ".jpg");
+    const alt = p && p.name ? p.name.replace(/"/g, "") : "";
     return (
       '<div class="focal ' +
       (extraClass || "") +
       '"><img src="' +
       photo +
-      '" alt="" data-fallback="' +
-      plateFor(p) +
+      '" alt="' +
+      alt +
+      '" data-fallback="' +
+      plateChain(p) +
       '"><span class="focal-caption">' +
       (p.lane || "desk") +
+      "</span></div>"
+    );
+  }
+
+  function plateMedia(key, caption, extraClass) {
+    return (
+      '<div class="focal ' +
+      (extraClass || "focal-card") +
+      '"><img src="img/plates/' +
+      key +
+      '.webp" alt="" data-fallback="img/plates/' +
+      key +
+      '.svg"><span class="focal-caption">' +
+      (caption || "") +
       "</span></div>"
     );
   }
@@ -92,8 +123,8 @@
   renderAtmosphere();
 
   const MARK = `<svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
-    <rect x="3.5" y="3.5" width="25" height="25" rx="3" fill="none" stroke="#3df0ff" stroke-width="1.4"/>
-    <path d="M10 20h12M12 20v-6h8v6M14 14V10h4v4" fill="none" stroke="#3df0ff" stroke-width="1.3"/>
+    <rect x="3.5" y="3.5" width="25" height="25" rx="3" fill="none" stroke="#d4af5a" stroke-width="1.4"/>
+    <path d="M10 20h12M12 20v-6h8v6M14 14V10h4v4" fill="none" stroke="#d4af5a" stroke-width="1.3"/>
   </svg>`;
 
   const NAV = [
@@ -220,7 +251,7 @@
       "<p>© " + year + " Aaron · Paradice Miniatures · was Paradise Treasures.</p>" +
       '<p class="preview-banner">Checkout is not live. Discord, Patreon, eBay, and print shops stay empty until real URLs are pasted into js/config.js.</p>' +
       '<div class="theme-bar">' +
-      '<span class="lbl">Grimdark</span><div class="theme-picks" role="group" aria-label="Theme">' +
+      '<span class="lbl">Palette</span><div class="theme-picks" role="group" aria-label="Theme">' +
       '<button type="button" data-theme-set="armageddon">Night</button>' +
       '<button type="button" data-theme-set="forge">Forge</button>' +
       '<button type="button" data-theme-set="chalice">Chalice</button></div>' +
@@ -352,12 +383,15 @@
         const rec = opt.recommended
           ? '<span class="pill">First-drop pick</span>'
           : "";
+        const art = { cathedral: "terrain", wreck: "terrain", scrap: "ork", manufactorum: "army" };
         return (
-          '<button type="button" class="card vote-card' +
+          '<button type="button" class="card vote-card card-media' +
           (picked === opt.id ? " is-picked" : "") +
           '" data-vote="' +
           opt.id +
           '">' +
+          plateMedia(art[opt.id] || "terrain", opt.letter, "focal-card") +
+          '<div class="card-body">' +
           rec +
           '<div class="letter">' +
           opt.letter +
@@ -369,7 +403,7 @@
           count +
           " vote" +
           (count === 1 ? "" : "s") +
-          " on this device</p></button>"
+          " on this device</p></div></button>"
         );
       })
       .join("");
@@ -397,6 +431,7 @@
         }
       });
     });
+    bindFallbacks(host);
   }
 
   function usd(n) {
@@ -418,6 +453,7 @@
           p.lane +
           '">' +
           mediaHtml(p, "focal-card") +
+          '<div class="product-body">' +
           '<span class="pill">' +
           p.tag +
           "</span>" +
@@ -432,14 +468,10 @@
           "</p>" +
           '<p class="price-lg">' +
           usd(p.price) +
-          '<span>' +
-          p.status +
-          " · " +
-          p.ship +
-          "</span></p>" +
+          '<span class="guide">Guide price · catalog draft · checkout off</span></p>' +
           '<a class="link" href="' +
           productHref(p.sku) +
-          '">Test item page →</a></article>'
+          '">View item →</a></div></article>'
         );
       })
       .join("");
@@ -499,14 +531,12 @@
       '<aside class="buy-panel">' +
       '<p class="price-lg">' +
       usd(p.price) +
-      "<span>Test price · " +
-      p.status +
-      " · checkout off</span></p>" +
+      '<span class="guide">Guide price · not for sale yet · checkout off</span></p>' +
       "<p class=\"note\">" +
       p.ship +
       "</p>" +
       '<div class="cta-row" style="margin-top:1.25rem">' +
-      '<a class="btn btn-primary is-pending" href="#coming">Reserve (not live)</a>' +
+      '<a class="btn btn-primary is-pending" href="#coming">Checkout not open</a>' +
       guide +
       '<a class="btn btn-ghost" href="shop.html">All test items</a>' +
       "</div></aside></div>";
@@ -533,15 +563,16 @@
           })
           .join("");
         return (
-          '<article class="card" id="' +
+          '<article class="card card-media" id="' +
           g.id +
           '" style="margin-bottom:1.5rem">' +
-          mediaHtml({ sku: g.sku, lane: "army" }, "focal-card") +
+          mediaHtml({ sku: g.sku, lane: "army", name: g.name }, "focal-card") +
+          '<div class="card-body">' +
           '<span class="pill">' +
           g.status +
           " · " +
           g.points.toLocaleString() +
-          " pts</span>" +
+          " pts · guide</span>" +
           "<h3>" +
           g.name +
           "</h3>" +
@@ -569,7 +600,7 @@
           '</p>' +
           '<a class="link" href="' +
           productHref(g.sku) +
-          '">Open army item page →</a></article>'
+          '">Open army item page →</a></div></article>'
         );
       })
       .join("");
@@ -594,10 +625,16 @@
     const link = w.href
       ? '<a class="link" href="' + w.href + '">' + (w.cta || "Open") + " →</a>"
       : '<p class="note" style="margin-top:1rem">Waits its season.</p>';
+    let key = "army";
+    if (isBookWorld(w)) key = "books";
+    else if (/commission|art/i.test((w && w.kind) || "")) key = "commission";
+    else if (/terrain|map/i.test((w && w.kind) || "")) key = "terrain";
     return (
-      '<article class="card" id="' +
+      '<article class="card card-media" id="' +
       w.id +
-      '"><span class="pill">' +
+      '">' +
+      plateMedia(key, w.kind || "branch") +
+      '<div class="card-body"><span class="pill">' +
       statusLabel(w.status) +
       '</span><p class="sku">' +
       w.kind +
@@ -609,7 +646,7 @@
       w.blurb +
       "</p>" +
       link +
-      "</article>"
+      "</div></article>"
     );
   }
 

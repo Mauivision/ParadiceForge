@@ -27,8 +27,13 @@ Or run `C:\Users\hawai\OPEN-PARADICE-FORGE.cmd`
 | File | What |
 |------|------|
 | `js/config.js` | Store name, YouTube, Discord / Patreon / tip / eBay / POD URLs |
-| `js/catalog.js` | Shop SKUs and test prices |
+| `js/catalog.js` | Shop SKUs and catalog-draft prices |
 | `js/worlds.js` | Books and story tree |
-| `img/products/SKU.jpg` | Real product photos (plates are the fallback) |
+| `img/products/SKU.jpg` | Real product photos (branded plates are the fallback) |
+| `img/hero.jpg` | Optional studio hero photo (falls back to `img/hero.webp`) |
 
-Checkout is off until live shop URLs exist.
+Checkout is off until live shop URLs exist. Catalog prices are drafts for planning — they are not a live cart.
+
+## Photos
+
+Until Aaron drops real SKU shots, the shop and product pages use branded illustrated plates in `img/plates/`. See `img/README.md`.

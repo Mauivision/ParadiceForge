@@ -1,14 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img">
   <defs>
     <radialGradient id="g" cx="50%" cy="70%" r="70%">
-      <stop offset="0%" stop-color="#1a4cff" stop-opacity="0.75"/>
-      <stop offset="55%" stop-color="#081428" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#040816" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#d4af5a" stop-opacity="0.45"/>
+      <stop offset="55%" stop-color="#1e1912" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#090704" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <rect width="640" height="400" fill="#040816"/>
+  <rect width="640" height="400" fill="#090704"/>
   <ellipse cx="320" cy="360" rx="280" ry="90" fill="url(#g)"/>
-  <path d="M80 300 L160 180 L200 220 L260 120 L300 200 L360 90 L420 210 L480 150 L560 300 Z" fill="#0c1830" opacity="0.9"/>
-  <path d="M200 300 L260 200 L290 230 L340 160 L380 240 L440 190 L500 300" fill="none" stroke="#3df0ff" stroke-width="2" opacity="0.5"/>
-  <circle cx="360" cy="88" r="10" fill="#7af6ff" opacity="0.65"/>
+  <path d="M80 300 L160 180 L200 220 L260 120 L300 200 L360 90 L420 210 L480 150 L560 300 Z" fill="#16120c" opacity="0.95"/>
+  <path d="M200 300 L260 200 L290 230 L340 160 L380 240 L440 190 L500 300" fill="none" stroke="#d4af5a" stroke-width="2" opacity="0.55"/>
+  <circle cx="360" cy="88" r="10" fill="#f0d48a" opacity="0.7"/>
 </svg>

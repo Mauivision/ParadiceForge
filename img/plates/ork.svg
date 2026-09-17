@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img">
-  <rect width="640" height="400" fill="#040816"/>
-  <path d="M70 340 L140 250 L190 290 L250 200 L310 270 L380 180 L450 260 L530 210 L590 340 Z" fill="#0c1c38"/>
-  <rect x="220" y="150" width="200" height="90" fill="#122848" opacity="0.85"/>
-  <circle cx="180" cy="210" r="28" fill="#1a3a70" opacity="0.8"/>
-  <circle cx="470" cy="200" r="22" fill="#163860"/>
-  <path d="M240 150 L320 80 L400 150" fill="none" stroke="#3df0ff" stroke-width="3" opacity="0.4"/>
-  <ellipse cx="320" cy="360" rx="220" ry="28" fill="#3d9eff" opacity="0.2"/>
+  <rect width="640" height="400" fill="#090704"/>
+  <path d="M70 340 L140 250 L190 290 L250 200 L310 270 L380 180 L450 260 L530 210 L590 340 Z" fill="#16120a"/>
+  <rect x="220" y="150" width="200" height="90" fill="#1e1912" opacity="0.9"/>
+  <circle cx="180" cy="210" r="28" fill="#3a4a28" opacity="0.8"/>
+  <circle cx="470" cy="200" r="22" fill="#4a3a18"/>
+  <path d="M240 150 L320 80 L400 150" fill="none" stroke="#d4af5a" stroke-width="3" opacity="0.45"/>
+  <ellipse cx="320" cy="360" rx="220" ry="28" fill="#c45c28" opacity="0.18"/>
 </svg>

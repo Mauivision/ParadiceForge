@@ -11,7 +11,7 @@ Static public site for **Paradice Forge** (store / home). Channel brand stays **
 
 ## Status
 
-Working static site. Checkout, Discord, Patreon, eBay, and print-on-demand links stay empty until real URLs are pasted into `js/config.js`.
+Working static site. Checkout, Discord, Patreon, eBay, and print-on-demand links stay empty until real URLs are pasted into `js/config.js`. Catalog prices are drafts, not a live cart. Branded plates in `img/` stand in until SKU photos land in `img/products/`.
 
 ## Next
 

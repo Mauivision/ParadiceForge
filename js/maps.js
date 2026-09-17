@@ -717,20 +717,20 @@
     canvas.width = tw;
     canvas.height = th + pad;
     const ctx = canvas.getContext("2d");
-    ctx.fillStyle = "#040816";
+    ctx.fillStyle = "#090704";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#3df0ff";
+    ctx.fillStyle = "#d4af5a";
     ctx.font = "600 13px DM Sans, system-ui, sans-serif";
     ctx.fillText("Paradice Forge  ·  " + c.system.name + "  ·  " + c.start.label, 10, 22);
-    ctx.fillStyle = "#7d93b8";
+    ctx.fillStyle = "#9a8c74";
     ctx.font = "12px DM Sans, system-ui, sans-serif";
     ctx.fillText(c.system.table.w + " × " + c.system.table.h + " in  ·  unofficial Forge start, not a GW map", 10, 34);
 
     ctx.save();
     ctx.translate(0, pad);
-    ctx.fillStyle = "#07101c";
+    ctx.fillStyle = "#120e08";
     ctx.fillRect(0, 0, tw, th);
-    ctx.strokeStyle = "rgba(61,240,255,0.08)";
+    ctx.strokeStyle = "rgba(212,175,90,0.1)";
     ctx.lineWidth = 1;
     for (let x = 0; x <= tw; x += scale) {
       ctx.beginPath();
@@ -746,13 +746,13 @@
     }
 
     (DEPLOYS[c.deploy] || []).forEach(function (z) {
-      ctx.fillStyle = z.side === "A" ? "rgba(61,240,255,0.12)" : "rgba(77,124,255,0.16)";
-      ctx.strokeStyle = "rgba(61,240,255,0.4)";
+      ctx.fillStyle = z.side === "A" ? "rgba(212,175,90,0.14)" : "rgba(196,92,40,0.16)";
+      ctx.strokeStyle = "rgba(212,175,90,0.4)";
       ctx.setLineDash([6, 4]);
       ctx.fillRect((z.x / 100) * tw, (z.y / 100) * th, (z.w / 100) * tw, (z.h / 100) * th);
       ctx.strokeRect((z.x / 100) * tw, (z.y / 100) * th, (z.w / 100) * tw, (z.h / 100) * th);
       ctx.setLineDash([]);
-      ctx.fillStyle = "#7af6ff";
+      ctx.fillStyle = "#f0d48a";
       ctx.font = "600 11px DM Sans, system-ui, sans-serif";
       ctx.fillText("Camp " + z.side, (z.x / 100) * tw + 8, (z.y / 100) * th + 16);
     });
@@ -767,29 +767,29 @@
       ctx.rotate(((p.rot || 0) * Math.PI) / 180);
       ctx.translate(-w / 2, -h / 2);
       if (p.shape === "tri") {
-        ctx.fillStyle = p.extra ? "rgba(61,240,255,0.45)" : "rgba(77,124,255,0.55)";
+        ctx.fillStyle = p.extra ? "rgba(212,175,90,0.45)" : "rgba(196,92,40,0.5)";
         ctx.beginPath();
         ctx.moveTo(0, h);
         ctx.lineTo(w, h);
         ctx.lineTo(0, 0);
         ctx.closePath();
         ctx.fill();
-        ctx.strokeStyle = "#3df0ff";
+        ctx.strokeStyle = "#d4af5a";
         ctx.stroke();
       } else if (p.shape === "blob") {
         ctx.fillStyle = "rgba(42,106,72,0.55)";
         ctx.beginPath();
         ctx.ellipse(w / 2, h / 2, w / 2, h / 2, 0, 0, Math.PI * 2);
         ctx.fill();
-        ctx.strokeStyle = "#5ee0c0";
+        ctx.strokeStyle = "#7dbe9a";
         ctx.stroke();
       } else {
-        ctx.fillStyle = p.extra ? "rgba(61,240,255,0.38)" : p.shape === "line" ? "rgba(61,240,255,0.28)" : "rgba(18,48,90,0.9)";
-        ctx.strokeStyle = "#3df0ff";
+        ctx.fillStyle = p.extra ? "rgba(212,175,90,0.38)" : p.shape === "line" ? "rgba(212,175,90,0.28)" : "rgba(30,25,18,0.92)";
+        ctx.strokeStyle = "#d4af5a";
         ctx.fillRect(0, 0, w, h);
         ctx.strokeRect(0, 0, w, h);
       }
-      ctx.fillStyle = "#e4f0ff";
+      ctx.fillStyle = "#f3ead8";
       ctx.font = "600 10px DM Sans, system-ui, sans-serif";
       ctx.fillText(String(p.label || "").slice(0, 22), 4, Math.min(h - 4, 14));
       ctx.restore();
