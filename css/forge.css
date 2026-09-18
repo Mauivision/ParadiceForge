@@ -308,8 +308,17 @@ img {
   color: var(--brass);
 }
 
-.nav-brand svg {
+.nav-brand svg,
+.nav-plate {
   flex-shrink: 0;
+}
+
+.nav-plate {
+  width: 36px;
+  height: 36px;
+  border-radius: 7px;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--brass) 45%, transparent);
 }
 
 .nav-links {
@@ -1176,6 +1185,11 @@ html[data-focus="subject"] .focal img {
   margin: -1.5rem -1.35rem 1rem;
   border: none;
   border-bottom: 1px solid var(--line);
+}
+
+.focal-plate::after {
+  background: linear-gradient(to top, rgba(9, 7, 4, 0.28), transparent 36%);
+  box-shadow: inset 0 0 60px rgba(8, 6, 2, 0.22);
 }
 
 .focal-caption {

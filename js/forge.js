@@ -171,15 +171,13 @@
   ensureFonts();
   renderAtmosphere();
 
-  const MARK = `<svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
-    <rect x="3.5" y="3.5" width="25" height="25" rx="3" fill="none" stroke="#d4af5a" stroke-width="1.4"/>
-    <path d="M10 20h12M12 20v-6h8v6M14 14V10h4v4" fill="none" stroke="#d4af5a" stroke-width="1.3"/>
-  </svg>`;
+  const MARK = '<img class="nav-plate" src="img/logos/plate-mark.png" width="36" height="36" alt="" />';
 
   const NAV = [
     { id: "home", href: "index.html", label: "Home" },
     { id: "creations", href: "creations.html", label: "Creations" },
     { id: "shop", href: "shop.html", label: "Shop" },
+    { id: "make", href: "make.html", label: "Make" },
     { id: "maps", href: "maps.html", label: "Maps" },
     { id: "adventure", href: "adventure.html", label: "Adventure" },
     { id: "community", href: "community.html", label: "Community" },

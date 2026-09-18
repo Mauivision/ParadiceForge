@@ -12,6 +12,11 @@ Print on the plate, no supports, 0.2 mm layers, PLA, 15% infill.
 | PF-WALL-SHORT.stl | 80 x 22 x 44 mm | Broken wall |
 | PF-WALL-CORNER.stl | 70 x 70 x 50 mm | L-corner |
 | PF-RUBBLE.stl | ~48 x 32 x 26 mm | Scatter (print 4–8) |
+| PF-PLATE.stl | 80 x 80 x 4.7 mm | Locked brand plaque |
+| PF-BARRICADE.stl | 90 x 22 x 28 mm | Crate wall |
+| PF-CRATE.stl | 28 x 20 x 17 mm | Ammo crate (print 4–6) |
+| PF-CRATER.stl | 60 x 60 x 7 mm | Blast ring |
+| PF-PILLAR.stl | 26 x 26 x 56 mm | Broken column |
 | PF-MARKER-40.stl | 40 mm disc | Objective |
 | PF-TOKEN-TRAY.stl | 72 x 28 x 8 mm | Tokens / dice wells |
 

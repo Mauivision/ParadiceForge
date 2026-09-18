@@ -35,8 +35,8 @@ Ready-to-paste prompts for Meshy-style STLs, grey print-on-demand, merch art, an
 | `js/catalog.js` | Shop SKUs and catalog-draft prices |
 | `js/worlds.js` | Books and story tree |
 | `img/products/SKU.jpg` | Real product photos (branded plates are the fallback) |
-| `img/merch/` | POD print masters (nave, wreck, scrap, mark) — shop URL empty |
-| `img/logos/` | Logo samples (SVG lock + raster directions) |
+| `img/merch/` | POD print masters (nave, wreck, scrap, locked plate, mark) — shop URL empty |
+| `img/logos/` | Locked brass plate + geometric SVG for the tab icon |
 
 Checkout is off until live shop URLs exist. Catalog prices are drafts for planning — they are not a live cart.
 

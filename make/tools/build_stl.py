@@ -182,6 +182,83 @@ def token_tray():
     return m
 
 
+def locked_gate(m, cx, cy, z0, z1, s, t):
+    """Raised locked plate mark: frame, posts, inner lintel, bottom rail. No aquila."""
+    m.box(cx - s, cy - s, z0, cx + s, cy - s + t, z1)
+    m.box(cx - s, cy + s - t, z0, cx + s, cy + s, z1)
+    m.box(cx - s, cy - s + t, z0, cx - s + t, cy + s - t, z1)
+    m.box(cx + s - t, cy - s + t, z0, cx + s, cy + s - t, z1)
+    post = t * 1.15
+    inner = s - t * 2.4
+    # Posts
+    m.box(cx - inner, cy - inner + post, z0, cx - inner + post, cy + inner - post * 0.2, z1)
+    m.box(cx + inner - post, cy - inner + post, z0, cx + inner, cy + inner - post * 0.2, z1)
+    # Bottom rail
+    m.box(cx - inner, cy - inner, z0, cx + inner, cy - inner + post, z1)
+    # Inner lintel (T) sitting on the posts, inside the frame
+    m.box(cx - inner - post * 0.35, cy + inner - post * 1.15, z0, cx + inner + post * 0.35, cy + inner, z1)
+
+
+def brand_plate():
+    """80 mm desk plaque with the locked brass-gate mark. Not a catalog SKU."""
+    m = Mesh()
+    L, floor = 80.0, 3.2
+    m.box(0, 0, 0, L, L, floor)
+    locked_gate(m, L / 2, L / 2, floor, floor + 1.5, 22.0, 3.2)
+    return m
+
+
+def barricade():
+    """Low crate barricade ~90 mm. Not a catalog SKU."""
+    m = Mesh()
+    m.box(0, 0, 0, 46, 22, 16)
+    m.box(44, 0, 0, 90, 22, 14)
+    m.box(12, 1, 16, 54, 21, 28)
+    m.box(50, 1, 14, 84, 21, 24)
+    m.box(4, 2, 2, 8, 20, 14)
+    m.box(78, 2, 2, 86, 20, 12)
+    return m
+
+
+def crate():
+    """Ammo crate scatter. Not a catalog SKU."""
+    m = Mesh()
+    m.box(0, 0, 0, 28, 20, 14)
+    m.box(0, 0, 14, 28, 20, 16)
+    m.box(1, 1, 16, 27, 19, 17.2)
+    m.box(6, 0, 2, 8.2, 20, 14)
+    m.box(19.8, 0, 2, 22, 20, 14)
+    return m
+
+
+def crater():
+    """Blast ring ~60 mm. Stepped boxes, not a sculpted bowl. Not a catalog SKU."""
+    m = Mesh()
+    m.box(8, 8, 0, 52, 52, 2.2)
+    m.box(0, 16, 0, 60, 44, 3)
+    m.box(16, 0, 0, 44, 60, 3)
+    m.box(0, 14, 3, 8, 46, 7)
+    m.box(52, 14, 3, 60, 46, 7)
+    m.box(8, 0, 3, 52, 8, 7)
+    m.box(8, 52, 3, 52, 60, 7)
+    m.box(2, 4, 3, 14, 16, 6)
+    m.box(46, 4, 3, 58, 16, 6)
+    m.box(2, 44, 3, 14, 56, 6)
+    m.box(46, 44, 3, 58, 56, 6)
+    return m
+
+
+def pillar():
+    """Broken objective column. Not a catalog SKU. Not the nave."""
+    m = Mesh()
+    m.box(0, 0, 0, 26, 26, 6)
+    m.box(4, 4, 6, 22, 22, 40)
+    m.box(3, 3, 40, 23, 23, 44)
+    m.box(2, 4, 44, 18, 20, 52)
+    m.box(6, 8, 52, 14, 16, 56)
+    return m
+
+
 def main():
     root = os.path.abspath(OUT)
     dice_tray().write(os.path.join(root, "LPF-STL-C3.stl"), "LPF-STL-C3")
@@ -191,6 +268,11 @@ def main():
     ruin_corner().write(os.path.join(root, "PF-WALL-CORNER.stl"), "PF-WALL-CORNER")
     rubble_pile().write(os.path.join(root, "PF-RUBBLE.stl"), "PF-RUBBLE")
     token_tray().write(os.path.join(root, "PF-TOKEN-TRAY.stl"), "PF-TOKEN-TRAY")
+    brand_plate().write(os.path.join(root, "PF-PLATE.stl"), "PF-PLATE")
+    barricade().write(os.path.join(root, "PF-BARRICADE.stl"), "PF-BARRICADE")
+    crate().write(os.path.join(root, "PF-CRATE.stl"), "PF-CRATE")
+    crater().write(os.path.join(root, "PF-CRATER.stl"), "PF-CRATER")
+    pillar().write(os.path.join(root, "PF-PILLAR.stl"), "PF-PILLAR")
 
 
 if __name__ == "__main__":

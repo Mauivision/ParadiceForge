@@ -4,6 +4,7 @@ Original Paradice Forge art for print-on-demand **after** a real Printful (or si
 
 | File | Use |
 |------|-----|
+| `plate-lock.png` | Locked engraved brass plate (official picture brand) |
 | `forge-mark.svg` | Vector mark (gold on charcoal) |
 | `forge-mark.png` | Raster lockup |
 | `nave-print.png` | Art print / shirt master from the ruined nave plate |

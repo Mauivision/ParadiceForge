@@ -24,9 +24,12 @@ Live: https://mauivision.github.io/ParadiceForge/
 | File | Lane |
 |------|------|
 | `make/stl/LPF-STL-C3.stl` | STL — dice tray, printable |
+| `make/stl/PF-PLATE.stl` | locked brand plaque, **no SKU** |
 | `make/stl/PF-WALL-*.stl`, `PF-RUBBLE.stl` | board-frame samples, **no SKU** |
+| `make/stl/PF-BARRICADE.stl`, `PF-CRATE.stl`, `PF-CRATER.stl`, `PF-PILLAR.stl` | next scatter, **no SKU** |
 | `make/stl/PF-MARKER-40.stl`, `PF-TOKEN-TRAY.stl` | desk samples, **no SKU** |
-| `img/merch/*.png` + `forge-mark.svg` | POD masters — Printful URL still empty |
+| `img/merch/*.png` + `forge-mark.svg` + `plate-lock.png` | POD masters — Printful URL still empty |
+| `img/logos/plate-lock.png` + `plate-mark.png` | locked picture brand + nav crop |
 | `make/paint/LPF-PHY-TA2P.txt` | paint-on-demand recipe for the nave |
 | `make/license/PERSONAL-USE.txt` | zip license |
 
@@ -149,9 +152,13 @@ Lidless. Thick enough FDM walls. Recessed or raised original Paradice Forge work
 Optional felt-well recess 1 mm. No text except optional "PF" monogram in Cinzel-like caps if the tool can do clean raised letters.
 ```
 
+### PF-PLATE — locked brand plaque (geometric, already built)
+
+`make/stl/PF-PLATE.stl` is the raised locked gate on an 80 mm square. Do not replace it with a Meshy mesh. Photo of a real print goes in `img/products/` only if a SKU is added later.
+
 ### Later (Tier B / C) — do not SKU yet
 
-When pack #1 prints: modular ruin walls, rubble scatter, walkways, craters, fuel silos, objective markers, token holders, army placards. Same hard locks. One prompt per piece. Pair with a centerpiece, do not dump a 40-file mega pack on day one.
+When pack #1 prints: modular ruin walls, rubble scatter, walkways, craters, fuel silos, objective markers, token holders, army placards. Same hard locks. One prompt per piece. Pair with a centerpiece, do not dump a 40-file mega pack on day one. Board-frame files already on the desk: `PF-BARRICADE`, `PF-CRATE`, `PF-CRATER`, `PF-PILLAR`.
 
 ---
 
@@ -191,7 +198,7 @@ No extra slogans. No fake URLs. No "Warhammer" word.
 Print-ready, centered, wearable as a dark charcoal shirt or a fine-art print of the plate itself.
 ```
 
-Run once per plate: cathedral, wreck, scrap, manufactorum, hero desk (`img/hero.webp`). The merch *is* the Forge art people already saw on the site — not a new IP.
+Run once per plate: cathedral, wreck, scrap, manufactorum, hero desk (`img/hero.webp`). Official picture brand for shirts and stickers is `img/merch/plate-lock.png` (same pixels as `img/logos/plate-lock.png`). The merch *is* the Forge art people already saw on the site — not a new IP.
 
 Dice-tray merch can use the same mark as `LPF-STL-C3` (physical tray via POD printer, or printed graphic on a bought tray). Still no live URL.
 
