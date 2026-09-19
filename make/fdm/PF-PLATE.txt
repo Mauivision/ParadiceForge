@@ -1,0 +1,17 @@
+PF-PLATE — locked brand plaque
+==============================
+
+Not a catalog SKU. Print this first after the dice tray.
+
+Size: 80 x 80 x ~4.7 mm
+Raised locked gate: posts, inner lintel, bottom rail. No aquila.
+Material: PLA (gold/silk if you have it) or PETG
+Nozzle: 0.4 mm   Layer: 0.2 mm   Infill: 20%
+Plate: clean PEI, no brim needed
+Supports: none
+Orientation: mark facing UP (Z)
+
+Paint notes: make/paint/PF-PLATE.txt
+Personal use: make/license/PERSONAL-USE.txt
+File: make/stl/PF-PLATE.stl
+Checkout is off.

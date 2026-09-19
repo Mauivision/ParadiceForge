@@ -28,6 +28,8 @@ Live: https://mauivision.github.io/ParadiceForge/
 | `make/stl/PF-WALL-*.stl`, `PF-RUBBLE.stl` | board-frame samples, **no SKU** |
 | `make/stl/PF-BARRICADE.stl`, `PF-CRATE.stl`, `PF-CRATER.stl`, `PF-PILLAR.stl` | next scatter, **no SKU** |
 | `make/stl/PF-MARKER-40.stl`, `PF-TOKEN-TRAY.stl` | desk samples, **no SKU** |
+| `make/stl/PF-MARKER-25.stl`, `PF-PLACARD.stl`, `PF-TILE.stl`, `PF-BARREL.stl`, `PF-WALKWAY.stl` | board kit, **no SKU** |
+| `make/fdm/PF-FIRST-PRINT.txt` | Hawaii desk print order |
 | `img/merch/*.png` + `forge-mark.svg` + `plate-lock.png` | POD masters — Printful URL still empty |
 | `img/logos/plate-lock.png` + `plate-mark.png` | locked picture brand + nav crop |
 | `make/paint/LPF-PHY-TA2P.txt` | paint-on-demand recipe for the nave |
@@ -158,7 +160,7 @@ Optional felt-well recess 1 mm. No text except optional "PF" monogram in Cinzel-
 
 ### Later (Tier B / C) — do not SKU yet
 
-When pack #1 prints: modular ruin walls, rubble scatter, walkways, craters, fuel silos, objective markers, token holders, army placards. Same hard locks. One prompt per piece. Pair with a centerpiece, do not dump a 40-file mega pack on day one. Board-frame files already on the desk: `PF-BARRICADE`, `PF-CRATE`, `PF-CRATER`, `PF-PILLAR`.
+When pack #1 prints: modular ruin walls, rubble scatter, walkways, craters, fuel silos, objective markers, token holders, army placards. Same hard locks. One prompt per piece. Pair with a centerpiece, do not dump a 40-file mega pack on day one. Board-frame files already on the desk: `PF-BARRICADE`, `PF-CRATE`, `PF-CRATER`, `PF-PILLAR`, `PF-TILE`, `PF-BARREL`, `PF-WALKWAY`, `PF-PLACARD`, `PF-MARKER-25`.
 
 ---
 
@@ -238,8 +240,9 @@ Use the existing catalog names only: winged hive tyrant (`LPF-HERO-TYRANT`), Lem
 
 ## Ideas still flowing (do not SKU)
 
-- Board-frame scatter to surround pack #1
-- Objective markers with the Forge square-gate mark
+- Board-frame kit to surround pack #1 — geometric files are on the desk; print `make/fdm/PF-FIRST-PRINT.txt`
+- Objective markers with the locked Forge gate (40 mm and 25 mm exist)
 - Patron “STL of the month” (community page already teases this; Discord URL empty)
-- Logo merch after the mark is locked on the dice tray
+- Logo merch from `img/merch/plate-lock.png` after a real Printful URL exists
 - Print-on-demand art prints of the four environment plates as a set — after one plate is a proven shirt/print
+- Meshy the nave (`LPF-STL-TA2`) from `img/plates/cathedral.webp` — still the first centerpiece mesh

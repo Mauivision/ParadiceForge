@@ -2,6 +2,7 @@
 """Build printable Paradice Forge STLs (mm). No extra packages."""
 from __future__ import annotations
 
+import math
 import os
 import struct
 
@@ -259,6 +260,94 @@ def pillar():
     return m
 
 
+def marker_25():
+    """25 mm objective disc. Companion to PF-MARKER-40. Not a catalog SKU."""
+    m = Mesh()
+    r, h, segs = 12.5, 2.8, 40
+    for i in range(segs):
+        a0 = 2 * math.pi * i / segs
+        a1 = 2 * math.pi * (i + 1) / segs
+        x0, y0 = r * math.cos(a0), r * math.sin(a0)
+        x1, y1 = r * math.cos(a1), r * math.sin(a1)
+        m.tri((0, 0, h), (x0, y0, h), (x1, y1, h))
+        m.tri((0, 0, 0), (x1, y1, 0), (x0, y0, 0))
+        m.quad((x0, y0, 0), (x1, y1, 0), (x1, y1, h), (x0, y0, h))
+    locked_gate(m, 0.0, 0.0, h, h + 0.6, 5.2, 1.05)
+    return m
+
+
+def army_placard():
+    """Army tray placard: locked gate + blank label well. No letters. Not a catalog SKU."""
+    m = Mesh()
+    L, W, floor = 80.0, 30.0, 3.0
+    m.box(0, 0, 0, L, W, floor)
+    locked_gate(m, 16.0, W / 2, floor, floor + 1.2, 9.5, 1.6)
+    # Recessed label well — write a name on tape or paint, do not raise fake type
+    m.box(30, 5, floor, 75, 7, floor + 1.0)
+    m.box(30, 23, floor, 75, 25, floor + 1.0)
+    m.box(30, 7, floor, 32, 23, floor + 1.0)
+    m.box(73, 7, floor, 75, 23, floor + 1.0)
+    return m
+
+
+def ruin_tile():
+    """50 mm ruin floor tile. Print a grid. Not a catalog SKU."""
+    m = Mesh()
+    m.box(0, 0, 0, 50, 50, 2.4)
+    for ix in range(4):
+        for iy in range(4):
+            x0 = 2 + ix * 12
+            y0 = 2 + iy * 12
+            lift = 0.6 if (ix + iy) % 2 == 0 else 0.35
+            m.box(x0, y0, 2.4, x0 + 10.5, y0 + 10.5, 2.4 + lift)
+    # Chipped corner
+    m.box(38, 38, 2.4, 50, 50, 4.2)
+    return m
+
+
+def barrel():
+    """Fuel drum scatter. Not a catalog SKU. Not a named kit."""
+    m = Mesh()
+    r, h, segs = 9.0, 22.0, 28
+    for i in range(segs):
+        a0 = 2 * math.pi * i / segs
+        a1 = 2 * math.pi * (i + 1) / segs
+        x0, y0 = r * math.cos(a0), r * math.sin(a0)
+        x1, y1 = r * math.cos(a1), r * math.sin(a1)
+        m.tri((0, 0, h), (x0, y0, h), (x1, y1, h))
+        m.tri((0, 0, 0), (x1, y1, 0), (x0, y0, 0))
+        m.quad((x0, y0, 0), (x1, y1, 0), (x1, y1, h), (x0, y0, h))
+    # Hoops
+    for z in (5.0, 16.0):
+        rr = r + 0.7
+        for i in range(segs):
+            a0 = 2 * math.pi * i / segs
+            a1 = 2 * math.pi * (i + 1) / segs
+            x0, y0 = rr * math.cos(a0), rr * math.sin(a0)
+            x1, y1 = rr * math.cos(a1), rr * math.sin(a1)
+            m.quad((x0, y0, z), (x1, y1, z), (x1, y1, z + 1.4), (x0, y0, z + 1.4))
+    return m
+
+
+def walkway():
+    """Short gantry / walkway ~80 mm. Not a catalog SKU. Not the stack."""
+    m = Mesh()
+    # Deck
+    m.box(0, 4, 10, 80, 20, 13)
+    # Planks
+    for x in (8, 24, 40, 56, 72):
+        m.box(x, 4, 13, x + 3, 20, 13.6)
+    # Rails
+    m.box(0, 3, 13, 80, 5, 20)
+    m.box(0, 19, 13, 80, 21, 20)
+    # Posts
+    m.box(2, 3, 0, 6, 7, 20)
+    m.box(2, 17, 0, 6, 21, 20)
+    m.box(74, 3, 0, 78, 7, 18)
+    m.box(74, 17, 0, 78, 21, 18)
+    return m
+
+
 def main():
     root = os.path.abspath(OUT)
     dice_tray().write(os.path.join(root, "LPF-STL-C3.stl"), "LPF-STL-C3")
@@ -273,6 +362,11 @@ def main():
     crate().write(os.path.join(root, "PF-CRATE.stl"), "PF-CRATE")
     crater().write(os.path.join(root, "PF-CRATER.stl"), "PF-CRATER")
     pillar().write(os.path.join(root, "PF-PILLAR.stl"), "PF-PILLAR")
+    marker_25().write(os.path.join(root, "PF-MARKER-25.stl"), "PF-MARKER-25")
+    army_placard().write(os.path.join(root, "PF-PLACARD.stl"), "PF-PLACARD")
+    ruin_tile().write(os.path.join(root, "PF-TILE.stl"), "PF-TILE")
+    barrel().write(os.path.join(root, "PF-BARREL.stl"), "PF-BARREL")
+    walkway().write(os.path.join(root, "PF-WALKWAY.stl"), "PF-WALKWAY")
 
 
 if __name__ == "__main__":

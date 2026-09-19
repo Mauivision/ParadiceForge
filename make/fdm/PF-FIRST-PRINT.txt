@@ -1,0 +1,28 @@
+First print tonight (Hawaii desk)
+=================================
+
+Checkout is off. Personal use. No new SKUs.
+
+Print in this order, 0.4 mm nozzle, 0.2 mm layers, no supports, PLA:
+
+1. make/stl/LPF-STL-C3.stl     dice tray (the one catalog SKU)
+2. make/stl/PF-PLATE.stl       locked brand plaque
+3. make/stl/PF-MARKER-40.stl   40 mm objective
+4. make/stl/PF-PLACARD.stl     army tray placard (blank label well)
+5. make/stl/PF-BARRICADE.stl   crate wall
+6. make/stl/PF-CRATE.stl       ammo crate  ×4
+7. make/stl/PF-RUBBLE.stl      rubble      ×4
+8. make/stl/PF-TILE.stl        ruin floor  ×4
+9. make/stl/PF-BARREL.stl      drum        ×2
+10. make/stl/PF-WALKWAY.stl    gantry
+
+Then the rest of make/stl/ as the plate fills.
+
+After the tray and plate print clean:
+- Paint the plate from make/paint/PF-PLATE.txt
+- Generate the nave mesh (LPF-STL-TA2) in Meshy from img/plates/cathedral.webp
+  + the prompt in prompts/stl-print-paint.md
+Do not pretend that centerpiece STL is in this folder.
+
+Notes: make/fdm/PF-BOARD-FRAME.txt  and  make/fdm/PF-PLATE.txt
+License: make/license/PERSONAL-USE.txt

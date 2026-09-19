@@ -1,0 +1,13 @@
+PF-PLATE — paint the locked plaque (desk)
+=========================================
+
+Match img/logos/plate-lock.png — not a GW badge.
+
+Base: charcoal / soot, not primer grey left raw.
+Metal: gold auramite, not chrome. Recessed gate darker, raised edges brighter.
+Frame: same gold, edge worn to steel.
+Motto is on the PNG, not on this mesh — leave the square field empty or hand-letter later.
+Matte varnish. Hawaii-desk light for the photo.
+
+Photograph as img/products/ only if a SKU is added later. Do not invent one.
+This is a desk plate, not merch until Printful has a real URL.

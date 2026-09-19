@@ -18,6 +18,11 @@ Print on the plate, no supports, 0.2 mm layers, PLA, 15% infill.
 | PF-CRATER.stl | 60 x 60 x 7 mm | Blast ring |
 | PF-PILLAR.stl | 26 x 26 x 56 mm | Broken column |
 | PF-MARKER-40.stl | 40 mm disc | Objective |
+| PF-MARKER-25.stl | 25 mm disc | Secondary objective |
+| PF-PLACARD.stl | 80 x 30 x 4.2 mm | Army tray placard |
+| PF-TILE.stl | 50 x 50 x 4.2 mm | Ruin floor (print 4–9) |
+| PF-BARREL.stl | ~20 x 20 x 22 mm | Fuel drum (print 2–4) |
+| PF-WALKWAY.stl | 80 x 22 x 20 mm | Short gantry |
 | PF-TOKEN-TRAY.stl | 72 x 28 x 8 mm | Tokens / dice wells |
 
 They are board frames, not LPF-STL-TA2. Do not list them as the shrine pack.
