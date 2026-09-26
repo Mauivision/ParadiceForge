@@ -237,7 +237,7 @@
       '<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>' +
       '<ul class="nav-links" id="nav-links">' +
       links +
-      '<li><a class="js-youtube" href="https://www.youtube.com/@Lost-Paradice-Forge">Watch</a></li>' +
+      '<li><a class="js-youtube" href="https://www.youtube.com/@Paradice-Miniatures">Watch</a></li>' +
       "</ul></div></nav>";
 
     const nav = host.querySelector(".site-nav");
@@ -294,10 +294,9 @@
       '<a href="terrain.html">Terrain</a>' +
       '<a href="community.html">Community</a>' +
       '<a href="about.html">About</a>' +
-      '<a class="js-youtube" href="https://www.youtube.com/@Lost-Paradice-Forge">YouTube</a>' +
+      '<a class="js-youtube" href="https://www.youtube.com/@Paradice-Miniatures">YouTube</a>' +
       "</div>" +
       "<p>© " + year + " Aaron · Paradice Miniatures · was Paradise Treasures.</p>" +
-      '<p class="preview-banner">Checkout is not live. Discord, Patreon, eBay, and print shops stay empty until real URLs are pasted into js/config.js.</p>' +
       '<div class="theme-bar">' +
       '<span class="lbl">Palette</span><div class="theme-picks" role="group" aria-label="Theme">' +
       '<button type="button" data-theme-set="armageddon">Night</button>' +
@@ -482,10 +481,6 @@
     bindFallbacks(host);
   }
 
-  function usd(n) {
-    return "$" + Number(n).toLocaleString();
-  }
-
   function productHref(sku) {
     return "product.html?sku=" + encodeURIComponent(sku);
   }
@@ -514,9 +509,7 @@
           "<p>" +
           p.blurb +
           "</p>" +
-          '<p class="price-lg">' +
-          usd(p.price) +
-          '<span class="guide">Guide price · catalog draft · checkout off</span></p>' +
+          '<p class="note">Not for sale yet</p>' +
           '<a class="link" href="' +
           productHref(p.sku) +
           '">View item →</a></div></article>'
@@ -580,9 +573,7 @@
       extras +
       "</ul></div>" +
       '<aside class="buy-panel">' +
-      '<p class="price-lg">' +
-      usd(p.price) +
-      '<span class="guide">Guide price · not for sale yet · checkout off</span></p>' +
+      '<p class="note">Not for sale yet</p>' +
       "<p class=\"note\">" +
       p.ship +
       "</p>" +
@@ -608,8 +599,6 @@
               u.unit +
               "</td><td>" +
               u.role +
-              "</td><td>" +
-              usd(u.plastic) +
               "</td></tr>"
             );
           })
@@ -631,20 +620,10 @@
           "<p>" +
           g.match +
           "</p>" +
-          '<table class="guide-table"><thead><tr><th>Unit</th><th>Role</th><th>Plastic (est.)</th></tr></thead><tbody>' +
+          '<table class="guide-table"><thead><tr><th>Unit</th><th>Role</th></tr></thead><tbody>' +
           rows +
           "</tbody></table>" +
-          '<div class="totals">' +
-          '<div class="total-box"><p class="lbl">Kit / plastic</p><p class="price-lg">' +
-          usd(g.plasticEst) +
-          "<span>Buy the boxes yourself</span></p></div>" +
-          '<div class="total-box"><p class="lbl">Assembled grey</p><p class="price-lg">' +
-          usd(g.greyEst) +
-          "<span>Built, unpainted tray</span></p></div>" +
-          '<div class="total-box"><p class="lbl">Table-ready paint</p><p class="price-lg">' +
-          usd(g.paintedEst) +
-          "<span>Forge sale test price</span></p></div>" +
-          "</div>" +
+          '<p class="note">Not for sale yet</p>' +
           '<p class="note">' +
           g.note +
           " " +
