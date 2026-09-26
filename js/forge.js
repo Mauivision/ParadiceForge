@@ -237,7 +237,7 @@
       '<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>' +
       '<ul class="nav-links" id="nav-links">' +
       links +
-      '<li><a class="js-youtube" href="https://www.youtube.com/@Lost-Paradice-Forge">Watch</a></li>' +
+      '<li><a class="js-youtube" href="https://www.youtube.com/@Paradice-Miniatures">Watch</a></li>' +
       "</ul></div></nav>";
 
     const nav = host.querySelector(".site-nav");
@@ -294,7 +294,7 @@
       '<a href="terrain.html">Terrain</a>' +
       '<a href="community.html">Community</a>' +
       '<a href="about.html">About</a>' +
-      '<a class="js-youtube" href="https://www.youtube.com/@Lost-Paradice-Forge">YouTube</a>' +
+      '<a class="js-youtube" href="https://www.youtube.com/@Paradice-Miniatures">YouTube</a>' +
       "</div>" +
       "<p>© " + year + " Aaron · Paradice Miniatures · was Paradise Treasures.</p>" +
       '<p class="preview-banner">Checkout is not live. Discord, Patreon, eBay, and print shops stay empty until real URLs are pasted into js/config.js.</p>' +

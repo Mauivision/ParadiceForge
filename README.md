@@ -1,8 +1,8 @@
 # Paradice Forge Website
 
-Public site for **Paradice Forge** — the store and home for [Paradice Miniatures](https://www.youtube.com/@Lost-Paradice-Forge).
+Public site for **Paradice Forge** — the store and home for [Paradice Miniatures](https://www.youtube.com/@Paradice-Miniatures).
 
-Paradice = paradise + dice. YouTube display name stays **Paradice Miniatures**. The YouTube URL handle `@Lost-Paradice-Forge` is unchanged.
+Paradice = paradise + dice. YouTube display name stays **Paradice Miniatures**. The YouTube URL handle `@Paradice-Miniatures` is unchanged.
 
 ## Live
 
