@@ -3,7 +3,7 @@ window.FORGE_CONFIG = {
   storeName: "Paradice Forge",
   channelName: "Paradice Miniatures",
   motto: "Love what I do, Love what you do.",
-  youtube: "https://www.youtube.com/@Lost-Paradice-Forge",
+  youtube: "https://www.youtube.com/@Paradice-Miniatures",
   discord: "",
   patreon: "",
   tip: "",
